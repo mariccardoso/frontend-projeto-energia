@@ -1,16 +1,18 @@
-// components/ContaDeEnergia.jsx
+"use client";
 
 import React from "react";
 import styles from "./ContaDeEnergia.module.css";
 
-const PRECO_KWH = 0.85; // Valor médio do kWh no Brasil em R$ (pode ser ajustado)
+const PRECO_KWH = 0.85; // Valor médio do kWh no Brasil em R$
 
 const ContaDeEnergia = ({ equipamentos }) => {
-  // Cálculo total de consumo e valor
   const consumoTotalKwh = equipamentos.reduce((total, item) => {
-    const consumo = (item.potencia * item.tempoUso) / 1000;
-    return total + consumo;
-  }, 0);
+  const potencia = Number(item.potencia);
+  const tempoUso = Number(item.tempoUso);
+  if (isNaN(potencia) || isNaN(tempoUso)) return total;
+  const consumo = (potencia * tempoUso) / 1000;
+  return total + consumo;
+}, 0);
 
   const valorEstimado = consumoTotalKwh * PRECO_KWH;
 

@@ -24,6 +24,49 @@
   flex-wrap: wrap;
 }
 
+.cardsDispositivos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 32px 0;
+}
+.cardDispositivo {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 16px;
+  min-width: 220px;
+}
+
+.btnRemover {
+  background: #ef6b6b;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btnRemover:hover {
+  background: #c0392b;
+}
+
+.btnRemoverTodos {
+  background: #8884d8;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.btnRemoverTodos:hover {
+  background: #5f5fc4;
+}
+
 /* Responsividade */
 @media (max-width: 900px) {
   .superior {
