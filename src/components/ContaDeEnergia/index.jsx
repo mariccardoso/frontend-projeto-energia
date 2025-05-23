@@ -18,7 +18,7 @@ const ContaDeEnergia = ({ equipamentos }) => {
 
   return (
     <div className={styles.contaEnergia}>
-      <h2>💰 Conta de Energia</h2>
+      <h2 className={styles.titulo}>💰 Conta de Energia</h2>
       <div className={styles.infoConta}>
         <p><strong>Consumo Total:</strong> {consumoTotalKwh.toFixed(2)} kWh</p>
         <p><strong>Valor Estimado:</strong> R$ {valorEstimado.toFixed(2)}</p>

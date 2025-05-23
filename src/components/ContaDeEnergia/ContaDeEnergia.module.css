@@ -1,23 +1,48 @@
-/* components/ContaDeEnergia.css */
-
 .contaEnergia {
-    background-color: #f8f9fa;
-    border: 2px solid #cfd8dc;
-    border-radius: 12px;
-    padding: 20px;
-    width: 35%;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contaEnergia h2 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    color: #333;
-  }
-  
-  .infoConta p {
-    font-size: 1rem;
-    margin: 6px 0;
-    color: #555;
-  }
-  
+  background: #18181b;
+  color: #f3f3f3;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0005;
+  padding: 28px 22px;
+  margin: 28px 0;
+  animation: fadeIn 0.8s;
+  max-width: 400px;
+  min-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.titulo {
+  color: #ffbb28;
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.infoConta {
+  background: #23232b;
+  border-radius: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 2px 12px #0003;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 1.2s;
+}
+
+.infoConta strong {
+  color: #a28ef0;
+  font-weight: 600;
+}
+
+.infoConta p {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}

@@ -42,7 +42,7 @@ const DashboardConsumo = ({ equipamentos }) => {
 
   return (
     <div className={styles.dashboardonConsumo}>
-      <h2>📊 Análise de Consumo</h2>
+      <h2 className={styles.titulo}>📊 Análise de Consumo</h2>
       <div className={styles.graficos}>
         <div className={styles.grafico}>
           <h4>Consumo por Dispositivo (%)</h4>
@@ -65,7 +65,7 @@ const DashboardConsumo = ({ equipamentos }) => {
         </div>
 
         <div className={styles.grafico}>
-          <h4>Top Equipamentos</h4>
+          <h4 className={styles.subtitulo}>Top Equipamentos</h4>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart layout="vertical" data={dataBarras}>
               <XAxis type="number" unit=" kWh" />
