@@ -13,26 +13,28 @@ const cores = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28EF0', '#EF6B6B']
 const DashboardConsumo = ({ equipamentos }) => {
   if (!equipamentos.length) return <p className={styles.vazio}>Nenhum equipamento adicionado.</p>;
 
-  // Agrupamento por cômodo
-  const consumoPorComodo = equipamentos.reduce((acc, item) => {
-  const potencia = Number(item.potencia);
-  const tempoUso = Number(item.tempoUso);
-  if (isNaN(potencia) || isNaN(tempoUso)) return acc;
-  const nomeComodo = item.comodo?.nome || item.comodoId || "Desconhecido";
-  const consumo = (potencia * tempoUso) / 1000;
-  acc[nomeComodo] = (acc[nomeComodo] || 0) + consumo;
-  return acc;
-}, {});
+  // Consumo total dos dispositivos
+  const consumoTotal = equipamentos.reduce((total, item) => {
+    const potencia = Number(item.potencia);
+    const tempoUso = Number(item.tempoUso);
+    if (isNaN(potencia) || isNaN(tempoUso)) return total;
+    const consumo = (potencia * tempoUso) / 1000;
+    return total + consumo;
+  }, 0);
 
-  const dataPizza = Object.entries(consumoPorComodo).map(([comodo, consumo]) => ({
-    name: comodo,
-    value: parseFloat(consumo.toFixed(2)),
-  }));
+  // Dados para o gráfico de pizza: cada dispositivo e sua porcentagem
+  const dataPizza = equipamentos.map((item) => {
+    const consumo = (Number(item.potencia) * Number(item.tempoUso)) / 1000;
+    return {
+      name: item.nome + (item.comodo?.nome ? ` (${item.comodo.nome})` : ""),
+      value: consumoTotal > 0 ? Number(((consumo / consumoTotal) * 100).toFixed(2)) : 0,
+    };
+  });
 
-  // Top 5 maiores consumidores
+  // Top 5 maiores consumidores (em kWh)
   const dataBarras = [...equipamentos]
     .map(eq => ({
-      nome: eq.nome,
+      nome: eq.nome + (eq.comodo?.nome ? ` (${eq.comodo.nome})` : ""),
       consumo: parseFloat(((eq.potencia * eq.tempoUso) / 1000).toFixed(2)),
     }))
     .sort((a, b) => b.consumo - a.consumo)
@@ -43,7 +45,7 @@ const DashboardConsumo = ({ equipamentos }) => {
       <h2>📊 Análise de Consumo</h2>
       <div className={styles.graficos}>
         <div className={styles.grafico}>
-          <h4>Consumo por Cômodo</h4>
+          <h4>Consumo por Dispositivo (%)</h4>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
@@ -52,7 +54,7 @@ const DashboardConsumo = ({ equipamentos }) => {
                 nameKey="name"
                 outerRadius={90}
                 fill="#8884d8"
-                label
+                label={({ name, value }) => `${name}: ${value}%`}
               >
                 {dataPizza.map((_, index) => (
                   <Cell key={`cell-${index}`} fill={cores[index % cores.length]} />

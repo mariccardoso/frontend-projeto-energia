@@ -11,7 +11,7 @@ const Page = () => {
   const [comodos, setComodos] = useState([]);
   const [comodoSelecionado, setComodoSelecionado] = useState(null);
   const [mostrarModal, setMostrarModal] = useState(false);
-  const [dispositivoAdicionado, setDispositivoAdicionado] = useState(null);
+  const [dispositivosAdicionados, setDispositivosAdicionados] = useState([]);
 
   // Buscar cômodos ao carregar a página
   useEffect(() => {
@@ -37,8 +37,20 @@ const Page = () => {
 
   // Função chamada após adicionar um dispositivo
   const handleAdicionarDispositivo = (novoDispositivo) => {
-    setDispositivoAdicionado(novoDispositivo);
+    setDispositivosAdicionados((prev) => [...prev, novoDispositivo]);
     setMostrarModal(false);
+  };
+
+  // Remover um dispositivo pelo índice
+  const handleRemoverDispositivo = (idx) => {
+  setDispositivosAdicionados((prev) =>
+    prev.filter((_, i) => i !== idx)
+  );
+};
+
+  // Remover todos os dispositivos
+  const handleRemoverTodos = () => {
+    setDispositivosAdicionados([]);
   };
 
   return (
@@ -48,53 +60,61 @@ const Page = () => {
       </h1>
       <div className={styles.superior}>
         <PlantaInterativa comodos={comodos} onAbrirModal={handleAbrirModal} />
-        <ContaDeEnergia
-          equipamentos={dispositivoAdicionado ? [dispositivoAdicionado] : []}
-        />
+        <ContaDeEnergia equipamentos={dispositivosAdicionados} />
       </div>
 
-      <DashboardConsumo
-        equipamentos={dispositivoAdicionado ? [dispositivoAdicionado] : []}
-      />
+      <DashboardConsumo equipamentos={dispositivosAdicionados} />
 
-      {/* Card do dispositivo adicionado */}
+      {/* Cards dos dispositivos adicionados */}
       <div className={styles.cardsDispositivos}>
-        {dispositivoAdicionado && (
-          <div className={styles.cardDispositivo}>
-            <h3>{dispositivoAdicionado.nome}</h3>
+        {dispositivosAdicionados.length > 0 && (
+          <button
+            className={styles.btnRemoverTodos}
+            onClick={handleRemoverTodos}
+          >
+            Remover todos
+          </button>
+        )}
+        {dispositivosAdicionados.map((dispositivo, idx) => (
+          <div key={dispositivo.id + '+' + idx} className={styles.cardDispositivo}>
+            <h3>{dispositivo.nome}</h3>
             <p>
               <strong>Cômodo:</strong>{" "}
-              {dispositivoAdicionado.comodo?.nome ||
-                dispositivoAdicionado.comodoId}
+              {dispositivo.comodo?.nome || dispositivo.comodoId}
             </p>
             <p>
-              <strong>Potência:</strong> {dispositivoAdicionado.potencia} W
+              <strong>Potência:</strong> {dispositivo.potencia} W
             </p>
             <p>
-              <strong>Tempo de uso:</strong> {dispositivoAdicionado.tempoUso}{" "}
-              h/dia
+              <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
             </p>
             <p>
-              <strong>Voltagem:</strong> {dispositivoAdicionado.voltagem} V
+              <strong>Voltagem:</strong> {dispositivo.voltagem} V
             </p>
             <p>
-              <strong>Corrente:</strong> {dispositivoAdicionado.corrente} A
+              <strong>Corrente:</strong> {dispositivo.corrente} A
             </p>
             <p>
               <strong>Consumo diário:</strong>{" "}
-              {dispositivoAdicionado &&
-              !isNaN(dispositivoAdicionado.potencia) &&
-              !isNaN(dispositivoAdicionado.tempoUso)
+              {dispositivo &&
+              !isNaN(dispositivo.potencia) &&
+              !isNaN(dispositivo.tempoUso)
                 ? (
-                    (dispositivoAdicionado.potencia *
-                      dispositivoAdicionado.tempoUso) /
+                    (dispositivo.potencia *
+                      dispositivo.tempoUso) /
                     1000
                   ).toFixed(2)
                 : "0.00"}{" "}
               kWh
             </p>
+            <button
+              className={styles.btnRemover}
+              onClick={() => handleRemoverDispositivo(idx)}
+            >
+              Remover
+            </button>
           </div>
-        )}
+        ))}
       </div>
 
       {mostrarModal && comodoSelecionado && (

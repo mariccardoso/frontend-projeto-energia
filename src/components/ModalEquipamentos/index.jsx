@@ -42,7 +42,7 @@ export default function ModalEquipamentos({ comodo, onFechar, onAdicionar }) {
         payload
       );
       alert("Equipamento adicionado com sucesso!");
-      onAdicionar(res.data);
+      onAdicionar(res.data.dispositivo);
       onFechar();
     } catch (error) {
       console.error("Erro ao adicionar equipamento:", error);
