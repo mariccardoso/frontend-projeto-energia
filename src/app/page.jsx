@@ -5,6 +5,7 @@ import PlantaInterativa from '../components/PlantaInterativa';
 import ModalEquipamentos from '../components/ModalEquipamentos';
 import ContaDeEnergia from '../components/ContaDeEnergia';
 import DashboardConsumo from '../components/DashboardConsumo';
+import CardDicas from '../components/CardDicas';
 
 import styles from './page.module.css';
 
@@ -18,7 +19,11 @@ const Page = () => {
   useEffect(() => {
     fetch('http://localhost:4000/comodos')
       .then(res => res.json())
-      .then(data => setComodos(data));
+      .then(data => setComodos(data))
+      .catch(err => {
+        console.error('Erro ao buscar cômodos:', err);
+        setComodos([]);
+      });
   }, []);
 
   const handleAbrirModal = (comodo) => {
@@ -48,6 +53,8 @@ const Page = () => {
           onAdicionar={handleAdicionarDispositivo}
         />
       )}
+
+      <CardDicas />
     </div>
   );
 };

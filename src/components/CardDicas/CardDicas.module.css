@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;      
+  justify-content: center;
+  gap: 2rem;              
+  padding: 2rem;
+  overflow-x: auto;      
+}
+
+.card {
+  width: 280px;
+  height: auto; 
+  min-height: 380px; 
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  background: #fff;
+}
+
+.imagem {
+  width: 100%;
+  min-height: 180px; 
+  height: 200px;     
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+    position: static; 
+  }
+
+.overlay h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.overlay ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.overlay li {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    gap: 1rem;
+  }
+  .card {
+    width: 220px;
+    min-height: 320px;
+  }
+  .imagem {
+    min-height: 120px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .card {
+    width: 45vw;
+    min-width: 180px;
+    max-width: 300px;
+    min-height: 260px;
+  }
+  .imagem {
+    min-height: 100px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .card {
+    width: 95vw;
+    max-width: 350px;
+    min-height: 200px;
+  }
+  .imagem {
+    min-height: 80px;
+    height: 100px;
+  }
+}
