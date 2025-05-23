@@ -1,0 +1,86 @@
+.secaoInicial {
+    background: #f5f6f8;
+    border-radius: 40px;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+  }
+  
+  .conteudo {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .esquerda {
+    flex: 1;
+    color: black
+  }
+  
+  .esquerda h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .destaque {
+    color: #0071f2;
+  }
+  
+  .esquerda p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 30px;
+    max-width: 480px;
+  }
+  
+  .cta {
+    background: #000;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 32px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 40px;
+  }
+  
+  .metricas {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    flex: 1;
+  }
+  
+  .numero {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .descricao {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .direita {
+    flex: 1;
+  }
+  
+  .imagem {
+    width: 100%;
+    border-radius: 24px;
+    object-fit: cover;
+  }
+  
