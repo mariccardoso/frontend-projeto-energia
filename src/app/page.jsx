@@ -5,6 +5,8 @@ import PlantaInterativa from "../components/PlantaInterativa";
 import ModalEquipamentos from "../components/ModalEquipamentos";
 import ContaDeEnergia from "../components/ContaDeEnergia";
 import DashboardConsumo from "../components/DashboardConsumo";
+import CardDicas from "../components/CardDicas";
+import SecaoInicial from "@/components/SecaoInicial";
 import styles from "./page.module.css";
 
 const Page = () => {
@@ -15,16 +17,12 @@ const Page = () => {
 
   // Buscar cômodos ao carregar a página
   useEffect(() => {
-    fetch("http://localhost:4000/comodos")
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data.comodos)) {
-          setComodos(data.comodos);
-        } else if (Array.isArray(data)) {
-          setComodos(data);
-        } else {
-          setComodos([]);
-        }
+    fetch('http://localhost:4000/comodos')
+      .then(res => res.json())
+      .then(data => setComodos(data))
+      .catch(err => {
+        console.error('Erro ao buscar cômodos:', err);
+        setComodos([]);
       });
   }, []);
 
@@ -43,10 +41,10 @@ const Page = () => {
 
   // Remover um dispositivo pelo índice
   const handleRemoverDispositivo = (idx) => {
-  setDispositivosAdicionados((prev) =>
-    prev.filter((_, i) => i !== idx)
-  );
-};
+    setDispositivosAdicionados((prev) =>
+      prev.filter((_, i) => i !== idx)
+    );
+  };
 
   // Remover todos os dispositivos
   const handleRemoverTodos = () => {
@@ -55,9 +53,7 @@ const Page = () => {
 
   return (
     <div className={styles.paginaSimulador}>
-      <h1 className={styles.titulo}>
-        Simulador de Consumo de Energia Residencial
-      </h1>
+      <SecaoInicial />
       <div className={styles.superior}>
         <PlantaInterativa comodos={comodos} onAbrirModal={handleAbrirModal} />
         <ContaDeEnergia equipamentos={dispositivosAdicionados} />
@@ -130,6 +126,8 @@ const Page = () => {
           onAdicionar={handleAdicionarDispositivo}
         />
       )}
+
+      <CardDicas />
     </div>
   );
 };
