@@ -1,0 +1,32 @@
+.dashboardConsumo {
+    margin-top: 32px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  }
+  
+  .dashboardConsumo h2 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: #333;
+  }
+  
+  .graficos {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  
+  .grafico {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .vazio {
+    margin-top: 20px;
+    font-style: italic;
+    color: #777;
+  }
+  

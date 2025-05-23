@@ -1,0 +1,95 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+  }
+  
+  .titulo {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  .fechar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: #34495e;
+  }
+  
+  .select, .input {
+    margin-top: 8px;
+    padding: 10px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .select:focus, .input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .infoEquipamento {
+    background: #f4f6f8;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .confirmar {
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .confirmar:hover {
+    background-color: #2980b9;
+  }
+  

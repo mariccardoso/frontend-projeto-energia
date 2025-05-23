@@ -1,0 +1,46 @@
+/* Contêiner principal da planta */
+.plantaContainer {
+    position: relative;
+    width: 65%;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Imagem da planta */
+  .plantaImg {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+  }
+  
+  /* Botões sobre a planta */
+  .botaoComodo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: #0a948baf; /* Azul moderno */
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .botaoComodo:hover {
+    background-color: #d81db6; /* Azul mais escuro no hover */
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .botaoComodo {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.7rem;
+    }
+  }
+  
