@@ -8,6 +8,7 @@ import DashboardConsumo from '../components/DashboardConsumo';
 import CardDicas from '../components/CardDicas';
 
 import styles from './page.module.css';
+import SecaoInicial from '@/components/SecaoInicial';
 
 const Page = () => {
   const [comodos, setComodos] = useState([]);
@@ -38,7 +39,7 @@ const Page = () => {
 
   return (
     <div className={styles.paginaSimulador}>
-      <h1 className={styles.titulo}>Simulador de Consumo de Energia Residencial</h1>
+        <SecaoInicial />
       <div className={styles.superior}>
         <PlantaInterativa comodos={comodos} onAbrirModal={handleAbrirModal} />
         <ContaDeEnergia equipamentos={equipamentosCasa} />
