@@ -1,24 +1,15 @@
-// src/components/PlantaInterativa.jsx
-import React, { useState } from "react";
-import ModalEquipamentos from "../ModalEquipamentos";
+"use client";
+
+import React from "react";
 import styles from "./PlantaInterativa.module.css";
 
-const COMODOS = [
-  { id: 1, nome: "Sala", top: "70%", left: "30%" },
-  { id: 2, nome: "Cozinha", top: "25%", left: "30%" },
-  { id: 3, nome: "Banheiro", top: "25%", left: "85%" },
-  { id: 4, nome: "Quarto", top: "70%", left: "80%" },
-];
-
-export default function PlantaInterativa() {
-  const [comodoSelecionado, setComodoSelecionado] = useState(null);
-
-  const handleAbrirModal = (comodoId) => {
-    setComodoSelecionado(comodoId);
-  };
-
-  const handleFecharModal = () => {
-    setComodoSelecionado(null);
+export default function PlantaInterativa({ comodos, onAbrirModal }) {
+  // Defina posições padrão para cada cômodo pelo nome
+  const posicoes = {
+    Sala: { top: "70%", left: "30%" },
+    Cozinha: { top: "25%", left: "30%" },
+    Banheiro: { top: "25%", left: "85%" },
+    Quarto: { top: "70%", left: "80%" },
   };
 
   return (
@@ -29,23 +20,16 @@ export default function PlantaInterativa() {
         className={styles.plantaImg}
       />
 
-      {COMODOS.map(({ id, nome, top, left }) => (
+      {comodos.map(({ id, nome }) => (
         <button
           key={id}
           className={styles.botaoComodo}
-          style={{ top, left }}
-          onClick={() => handleAbrirModal(id)}
+          style={posicoes[nome] || {}}
+          onClick={() => onAbrirModal(id)}
         >
           {nome}
         </button>
       ))}
-
-      {comodoSelecionado && (
-        <ModalEquipamentos
-          comodoId={comodoSelecionado}
-          onClose={handleFecharModal}
-        />
-      )}
     </div>
   );
 }

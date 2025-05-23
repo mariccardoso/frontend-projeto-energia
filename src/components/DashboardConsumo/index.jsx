@@ -1,4 +1,4 @@
-// components/DashboardConsumo.jsx
+"use client";
 
 import React from 'react';
 import {
@@ -15,10 +15,14 @@ const DashboardConsumo = ({ equipamentos }) => {
 
   // Agrupamento por cômodo
   const consumoPorComodo = equipamentos.reduce((acc, item) => {
-    const consumo = (item.potencia * item.tempoUso) / 1000;
-    acc[item.comodo] = (acc[item.comodo] || 0) + consumo;
-    return acc;
-  }, {});
+  const potencia = Number(item.potencia);
+  const tempoUso = Number(item.tempoUso);
+  if (isNaN(potencia) || isNaN(tempoUso)) return acc;
+  const nomeComodo = item.comodo?.nome || item.comodoId || "Desconhecido";
+  const consumo = (potencia * tempoUso) / 1000;
+  acc[nomeComodo] = (acc[nomeComodo] || 0) + consumo;
+  return acc;
+}, {});
 
   const dataPizza = Object.entries(consumoPorComodo).map(([comodo, consumo]) => ({
     name: comodo,

@@ -24,6 +24,20 @@
   flex-wrap: wrap;
 }
 
+.cardsDispositivos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 32px 0;
+}
+.cardDispositivo {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 16px;
+  min-width: 220px;
+}
+
 /* Responsividade */
 @media (max-width: 900px) {
   .superior {
