@@ -1,95 +1,113 @@
 .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .modal {
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    position: relative;
-  }
-  
-  .titulo {
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-    color: #2c3e50;
-    text-align: center;
-  }
-  
-  .fechar {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #999;
-  }
-  
-  .formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .label {
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-    color: #34495e;
-  }
-  
-  .select, .input {
-    margin-top: 8px;
-    padding: 10px 12px;
-    border: 1px solid #d0d7de;
-    border-radius: 8px;
-    font-size: 1rem;
-  }
-  
-  .select:focus, .input:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-  }
-  
-  .infoEquipamento {
-    background: #f4f6f8;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    color: #2c3e50;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  
-  .confirmar {
-    padding: 12px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .confirmar:hover {
-    background-color: #2980b9;
-  }
-  
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #23232b;
+  color: #f3f3f3;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #000a;
+  padding: 32px 28px 24px 28px;
+  min-width: 340px;
+  max-width: 95vw;
+  animation: modalPop 0.5s;
+  position: relative;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.92) translateY(30px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.fechar {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.fechar:hover {
+  color: #ffbb28;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+  color: #a28ef0;
+  letter-spacing: 1px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.label {
+  font-size: 1rem;
+  color: #f3f3f3;
+  margin-bottom: 4px;
+}
+
+.select, .input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 6px;
+  background: #18181b;
+  color: #f3f3f3;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 4px #0003;
+}
+.select:focus, .input:focus {
+  box-shadow: 0 0 0 2px #a28ef0;
+}
+
+.infoEquipamento {
+  background: #18181b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  color: #ffbb28;
+  font-size: 0.98rem;
+  animation: fadeIn 0.5s;
+}
+
+.confirmar {
+  background: linear-gradient(90deg, #a28ef0 60%, #ffbb28 100%);
+  color: #18181b;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+.confirmar:hover {
+  background: linear-gradient(90deg, #ffbb28 60%, #a28ef0 100%);
+  color: #fff;
+  transform: scale(1.04);
+}

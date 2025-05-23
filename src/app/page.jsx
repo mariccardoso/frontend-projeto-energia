@@ -72,45 +72,51 @@ const Page = () => {
           </button>
         )}
         {dispositivosAdicionados.map((dispositivo, idx) => (
-          <div key={dispositivo.id + '+' + idx} className={styles.cardDispositivo}>
-            <h3>{dispositivo.nome}</h3>
-            <p>
-              <strong>Cômodo:</strong>{" "}
-              {dispositivo.comodo?.nome || dispositivo.comodoId}
-            </p>
-            <p>
-              <strong>Potência:</strong> {dispositivo.potencia} W
-            </p>
-            <p>
-              <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
-            </p>
-            <p>
-              <strong>Voltagem:</strong> {dispositivo.voltagem} V
-            </p>
-            <p>
-              <strong>Corrente:</strong> {dispositivo.corrente} A
-            </p>
-            <p>
-              <strong>Consumo diário:</strong>{" "}
-              {dispositivo &&
-              !isNaN(dispositivo.potencia) &&
-              !isNaN(dispositivo.tempoUso)
-                ? (
-                    (dispositivo.potencia *
-                      dispositivo.tempoUso) /
-                    1000
-                  ).toFixed(2)
-                : "0.00"}{" "}
-              kWh
-            </p>
-            <button
-              className={styles.btnRemover}
-              onClick={() => handleRemoverDispositivo(idx)}
-            >
-              Remover
-            </button>
-          </div>
-        ))}
+  <div key={dispositivo.id + '+' + idx} className={styles.cardDispositivo}>
+    <h3>{dispositivo.nome}</h3>
+    <p>
+      <strong>Cômodo:</strong>{" "}
+      {dispositivo.comodo?.nome || dispositivo.comodoNome || dispositivo.comodoId}
+    </p>
+    <p>
+      <strong>Potência:</strong> {dispositivo.potencia} W
+    </p>
+    <p>
+      <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
+    </p>
+    <p>
+      <strong>Voltagem:</strong> {dispositivo.voltagem} V
+    </p>
+    <p>
+      <strong>Corrente:</strong> {dispositivo.corrente} A
+    </p>
+    <p>
+      <strong>Marca:</strong> {dispositivo.marca}
+    </p>
+    <p>
+      <strong>Descrição:</strong> {dispositivo.descricao}
+    </p>
+    <p>
+      <strong>Consumo diário:</strong>{" "}
+      {dispositivo &&
+      !isNaN(dispositivo.potencia) &&
+      !isNaN(dispositivo.tempoUso)
+        ? (
+            (dispositivo.potencia *
+              dispositivo.tempoUso) /
+            1000
+          ).toFixed(2)
+        : "0.00"}{" "}
+      kWh
+    </p>
+    <button
+      className={styles.btnRemover}
+      onClick={() => handleRemoverDispositivo(idx)}
+    >
+      Remover
+    </button>
+  </div>
+))}
       </div>
 
       {mostrarModal && comodoSelecionado && (

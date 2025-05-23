@@ -27,44 +27,93 @@
 .cardsDispositivos {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin: 32px 0;
+  gap: 28px;
+  justify-content: center;
+  margin: 36px 0 0 0;
 }
+
 .cardDispositivo {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px #0001;
-  padding: 16px;
-  min-width: 220px;
+  background: #23232b;
+  color: #f3f3f3;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0007;
+  padding: 28px 22px 22px 22px;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInCard 0.7s;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.cardDispositivo h3 {
+  color: #ffbb28;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.cardDispositivo p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.cardDispositivo strong {
+  color: #a28ef0;
+  font-weight: 600;
 }
 
 .btnRemover {
-  background: #ef6b6b;
+  background: linear-gradient(90deg, #ef6b6b 60%, #a28ef0 100%);
   color: #fff;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  margin-top: 8px;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
 }
 .btnRemover:hover {
-  background: #c0392b;
+  background: linear-gradient(90deg, #a28ef0 60%, #ef6b6b 100%);
+  color: #fff;
+  transform: scale(1.04);
 }
 
 .btnRemoverTodos {
-  background: #8884d8;
-  color: #fff;
+  background: linear-gradient(90deg, #ffbb28 60%, #a28ef0 100%);
+  color: #18181b;
   border: none;
-  padding: 8px 18px;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 1.1rem;
   font-weight: bold;
-  transition: background 0.2s;
+  cursor: pointer;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .btnRemoverTodos:hover {
-  background: #5f5fc4;
+  background: linear-gradient(90deg, #a28ef0 60%, #ffbb28 100%);
+  color: #fff;
+  transform: scale(1.04);
 }
 
 /* Responsividade */

@@ -1,32 +1,59 @@
-.dashboardConsumo {
-    margin-top: 32px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
-  }
-  
-  .dashboardConsumo h2 {
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-    color: #333;
-  }
-  
-  .graficos {
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  
-  .grafico {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .vazio {
-    margin-top: 20px;
-    font-style: italic;
-    color: #777;
-  }
-  
+.dashboardonConsumo {
+  background: #18181b;
+  color: #f3f3f3;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0005;
+  padding: 32px 24px;
+  margin: 32px 0;
+  animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.graficos {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grafico {
+  background: #23232b;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0003;
+  padding: 24px 16px;
+  min-width: 320px;
+  flex: 1 1 350px;
+  animation: fadeIn 1.2s;
+  transition: box-shadow 0.2s;
+}
+
+.grafico:hover {
+  box-shadow: 0 6px 24px #0007;
+}
+
+.titulo {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.subtitulo {
+  color: #a28ef0;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.vazio {
+  color: #ffbb28;
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 32px 0;
+  animation: fadeIn 0.8s;
+}
