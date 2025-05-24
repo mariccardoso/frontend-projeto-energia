@@ -5,36 +5,36 @@ const comodos = [
     titulo: 'Quarto',
     imagem: '/quarto.jpg',
     dicas: [
-      'Desligue o carregador da tomada quando não estiver em uso.',
-      'Evite deixar eletrônicos em standby (TV, videogame).',
-      'Prefira lâmpadas LED e use iluminação natural sempre que possível.'
+      'Desligue o carregador da tomada quando não usar.',
+      'Evite eletrônicos em standby.',
+      'Prefira lâmpadas LED e luz natural.'
     ]
   },
   {
     titulo: 'Banheiro',
     imagem: '/banheiro.webp',
     dicas: [
-      'Evite banhos longos com aquecedor elétrico.',
+      'Evite banhos longos.',
       'Desligue o chuveiro ao se ensaboar.',
-      'Use aquecedores de ambiente com moderação.'
+      'Use aquecedor só quando necessário.'
     ]
   },
   {
     titulo: 'Sala',
     imagem: '/sala.jpg',
     dicas: [
-      'Desligue a TV e aparelhos quando ninguém estiver usando.',
-      'Use régua com botão para cortar a energia de vários equipamentos.',
-      'Aproveite a luz natural durante o dia.'
+      'Desligue TV e aparelhos sem uso.',
+      'Use régua para cortar energia de vários equipamentos.',
+      'Aproveite a luz natural.'
     ]
   },
   {
     titulo: 'Cozinha',
     imagem: '/cozinha.png',
     dicas: [
-      'Evite abrir a geladeira frequentemente.',
-      'Use o micro-ondas com consciência (não como aquecedor).',
-      'Desligue aparelhos como cafeteiras e torradeiras após o uso.'
+      'Evite abrir a geladeira várias vezes.',
+      'Use o micro-ondas com consciência.',
+      'Desligue aparelhos após o uso.'
     ]
   }
 ];
