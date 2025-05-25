@@ -18,8 +18,29 @@ const Page = () => {
   // Buscar cômodos ao carregar a página
   useEffect(() => {
     fetch('http://localhost:4000/comodos')
-      .then(res => res.json())
-      .then(data => setComodos(data))
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log('API response:', data); // Log the raw response
+        if (Array.isArray(data)) {
+          setComodos(data);
+        } else {
+          console.error('API response is not an array:', data);
+          setComodos([]);
+        }
+      })
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setComodos(data);
+        } else {
+          console.warn('No cômodos found or invalid response:', data);
+          setComodos([]);
+        }
+      })
       .catch(err => {
         console.error('Erro ao buscar cômodos:', err);
         setComodos([]);
@@ -53,6 +74,11 @@ const Page = () => {
 
   return (
     <div className={styles.paginaSimulador}>
+            {comodos.length === 0 && (
+      <p className={styles.errorMessage}>
+        Não foi possível carregar os cômodos. Tente novamente mais tarde.
+      </p>
+    )}
       <SecaoInicial />
       <div className={styles.superior}>
         <PlantaInterativa comodos={comodos} onAbrirModal={handleAbrirModal} />

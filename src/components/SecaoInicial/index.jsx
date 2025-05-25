@@ -18,15 +18,15 @@ export default function SecaoInicial() {
 
           <div className={styles.metricas}>
             <div className={styles.card}>
-              <span className={styles.numero}>+300</span>
+              <span className={styles.numero}>+300 </span>
               <span className={styles.descricao}>simulações realizadas</span>
             </div>
             <div className={styles.card}>
-              <span className={styles.numero}>5min</span>
+              <span className={styles.numero}>5min </span>
               <span className={styles.descricao}>para concluir a análise</span>
             </div>
             <div className={styles.card}>
-              <span className={styles.numero}>∞</span>
+              <span className={styles.numero}>∞ </span>
               <span className={styles.descricao}>insights para economizar</span>
             </div>
           </div>
