@@ -1,8 +1,7 @@
 .secaoInicial {
     border-radius: 40px;
-
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 20px;
   }
@@ -12,24 +11,22 @@
     gap: 50px;
     height: 50rem;
     align-items: center;
-    
-    /* max-width: 1200px; */
     width: 100%;
   }
   
-  .esquerda {
+  .content {
     color: black;
     padding: 60px;
     display: flex;
     flex-direction: column;
     border-radius: 40px;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
     background: #f5f6f8;
     width: 60%
   }
   
-  .esquerda h1 {
+  .content h1 {
     font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -39,7 +36,7 @@
     color: #0071f2;
   }
   
-  .esquerda p {
+  .content p {
     font-size: 1.2rem;
     color: #444;
     margin-bottom: 30px;
