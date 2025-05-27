@@ -11,7 +11,12 @@ import styles from './DashboardConsumo.module.css';
 const cores = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28EF0', '#EF6B6B'];
 
 const DashboardConsumo = ({ equipamentos }) => {
-  if (!equipamentos.length) return <p className={styles.vazio}>Nenhum equipamento adicionado.</p>;
+  if (!equipamentos.length) return (
+  <div className={styles.vazio}>
+    <div className={styles.loader}></div>
+    <span>Adicione dispositivos para começar a calcular o consumo de energia!</span>
+  </div>
+);
 
   // Consumo total dos dispositivos
   const consumoTotal = equipamentos.reduce((total, item) => {
