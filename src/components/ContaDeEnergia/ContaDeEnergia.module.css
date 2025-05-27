@@ -1,7 +1,7 @@
 .contaEnergia {
-  max-width: 500px;
+  max-width: 700px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: 0 2px 8px #0002;
   padding: 24px 18px;
   margin: 24px 0;
@@ -11,23 +11,28 @@
   overflow-y: auto;        /* scroll vertical se passar do limite */
   display: flex;
   flex-direction: column;
+  border: 2px solid #cfd8dc;
+  font-family: 'Poppins', sans-serif;
+  gap: 10px;
 }
 
 .contaEnergia h2 {
-  font-size: 1.2rem;
+  font-size: 2rem;
   margin-bottom: 11px;
-  color: #3f3c3c;
+  color: #ffe600;
   font-weight: 700;
   letter-spacing: 0.5px;
-  border-bottom: 2px solid #b27b44;
+  border-bottom: 2px solid #bababa;
   padding-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .iconDinheiro {
   vertical-align: middle;
   margin-right: 8px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
 }
 
@@ -58,7 +63,17 @@
 .blocoConsumo p,
 .blocoValor p {
   margin: 0.3rem 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: #37474f;
+  background: #f9e971;
+  border-radius: 8px;
+  padding: 8px 14px;
+  transition: background-color 0.3s ease;
+}
+
+.blocoConsumo p:hover,
+.blocoValor p:hover {
+  background-color: #bababaf0;
 }
 
 .tabelaDispositivos {

@@ -11,9 +11,17 @@
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: 
+    box-shadow 0.3s cubic-bezier(.4,2,.3,1),
+    transform 0.35s cubic-bezier(.4,2,.3,1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
   position: relative;
+  background: #18181b8c;
+  will-change: transform, box-shadow;
+}
+.card:hover, .aberto {
+  box-shadow: 0 8px 32px #ffd60044, 0 2px 16px #0006;
+  transform: translateY(-8px) scale(1.04) rotateZ(-1deg);
 }
 
 .frente {
@@ -24,25 +32,29 @@
   position: relative;
   display: flex;
   align-items: flex-end;
+  transition: filter 0.3s;
+  filter: brightness(0.95) saturate(1.1);
 }
 
 .tituloOverlay {
   width: 100%;
-  background: #29292986;
+  background: linear-gradient(0deg, #18181ba8 100%);
   border-radius: 0 0 18px 18px;
   padding: 16px 0;
   text-align: center;
 }
 
 .tituloOverlay span {
-  color: #ffe600;
+  color: #ffd600;
   font-size: 1.3rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .verso {
-  background: #4d4d4d;     
-  color: #fff;           
+  background: #23232b;
+  color: #fff;
   width: 100%;
   height: 100%;
   padding: 24px 16px;
@@ -51,16 +63,30 @@
   justify-content: center;
   border-radius: 18px;
   box-sizing: border-box;
+  animation: versoFadeIn 0.5s cubic-bezier(.4,2,.3,1);
+}
+
+@keyframes versoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .verso h3 {
   margin-bottom: 12px;
-  color: #222;
+  color: #18181b;
   font-weight: bold;
-  background: #eae39f;      
+  background: #ffd600;
   border-radius: 12px;
   padding: 8px 0;
   text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
 .verso ul {
@@ -68,5 +94,5 @@
 }
 
 .aberto {
-  box-shadow: 0 4px 16px #2929295f;
+  transform: translateY(-8px) scale(1.04) rotateZ(-1deg);
 }
