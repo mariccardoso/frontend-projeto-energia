@@ -25,25 +25,16 @@ const Page = () => {
         return res.json();
       })
       .then(data => {
-        console.log('API response:', data); // Log the raw response
         if (Array.isArray(data)) {
           setComodos(data);
         } else {
+          setComodos([]);
           console.error('API response is not an array:', data);
-          setComodos([]);
-        }
-      })
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setComodos(data);
-        } else {
-          console.warn('No cômodos found or invalid response:', data);
-          setComodos([]);
         }
       })
       .catch(err => {
-        console.error('Erro ao buscar cômodos:', err);
         setComodos([]);
+        console.error('Erro ao buscar cômodos:', err);
       });
   }, []);
 
@@ -60,25 +51,27 @@ const Page = () => {
     setMostrarModal(false);
   };
 
-  // Remover um dispositivo pelo índice
+  // Remover um dispositivo pelo índice global
   const handleRemoverDispositivo = (idx) => {
     setDispositivosAdicionados((prev) =>
       prev.filter((_, i) => i !== idx)
     );
   };
 
-  // Remover todos os dispositivos
-  const handleRemoverTodos = () => {
-    setDispositivosAdicionados([]);
+  // Remover todos os dispositivos de um cômodo
+  const handleRemoverTodosDoComodo = (comodoId) => {
+    setDispositivosAdicionados((prev) =>
+      prev.filter((d) => d.comodoId !== comodoId)
+    );
   };
 
   return (
     <div className={styles.paginaSimulador}>
-            {comodos.length === 0 && (
-      <p className={styles.errorMessage}>
-        Não foi possível carregar os cômodos. Tente novamente mais tarde.
-      </p>
-    )}
+      {comodos.length === 0 && (
+        <p className={styles.errorMessage}>
+          Não foi possível carregar os cômodos. Tente novamente mais tarde.
+        </p>
+      )}
       <SecaoInicial />
       <div className={styles.superior}>
         <PlantaInterativa comodos={comodos} onAbrirModal={handleAbrirModal} />
@@ -87,63 +80,71 @@ const Page = () => {
 
       <DashboardConsumo equipamentos={dispositivosAdicionados} />
 
-      {/* Cards dos dispositivos adicionados */}
-      <div className={styles.cardsDispositivos}>
-        {dispositivosAdicionados.length > 0 && (
-          <button
-            className={styles.btnRemoverTodos}
-            onClick={handleRemoverTodos}
-          >
-            Remover todos
-          </button>
-        )}
-        {dispositivosAdicionados.map((dispositivo, idx) => (
-  <div key={dispositivo.id + '+' + idx} className={styles.cardDispositivo}>
-    <h3>{dispositivo.nome}</h3>
-    <p>
-      <strong>Cômodo:</strong>{" "}
-      {dispositivo.comodo?.nome || dispositivo.comodoNome || dispositivo.comodoId}
-    </p>
-    <p>
-      <strong>Potência:</strong> {dispositivo.potencia} W
-    </p>
-    <p>
-      <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
-    </p>
-    <p>
-      <strong>Voltagem:</strong> {dispositivo.voltagem} V
-    </p>
-    <p>
-      <strong>Corrente:</strong> {dispositivo.corrente} A
-    </p>
-    <p>
-      <strong>Marca:</strong> {dispositivo.marca}
-    </p>
-    <p>
-      <strong>Descrição:</strong> {dispositivo.descricao}
-    </p>
-    <p>
-      <strong>Consumo diário:</strong>{" "}
-      {dispositivo &&
-      !isNaN(dispositivo.potencia) &&
-      !isNaN(dispositivo.tempoUso)
-        ? (
-            (dispositivo.potencia *
-              dispositivo.tempoUso) /
-            1000
-          ).toFixed(2)
-        : "0.00"}{" "}
-      kWh
-    </p>
-    <button
-      className={styles.btnRemover}
-      onClick={() => handleRemoverDispositivo(idx)}
-    >
-      Remover
-    </button>
-  </div>
-))}
-      </div>
+      {/* Dispositivos agrupados por cômodo */}
+      {comodos.map((comodo) => {
+        // Filtra dispositivos adicionados desse cômodo
+        const dispositivosDoComodo = dispositivosAdicionados.filter(
+          (d) => d.comodoId === comodo.id
+        );
+
+        if (dispositivosDoComodo.length === 0) return null;
+
+        return (
+          <section key={comodo.id} className={styles.sessaoComodo}>
+            <h2 className={styles.tituloComodo}>{comodo.nome}</h2>
+            <div className={styles.cardsDispositivos}>
+              {dispositivosDoComodo.map((dispositivo, idx) => {
+                // Para remover corretamente, pegue o índice global
+                const idxGlobal = dispositivosAdicionados.findIndex(
+                  (d) =>
+                    d.comodoId === comodo.id &&
+                    d.nome === dispositivo.nome &&
+                    d.tempoUso === dispositivo.tempoUso
+                );
+                return (
+                  <div key={dispositivo.nome + '+' + idx} className={styles.cardDispositivo}>
+                    <h3>{dispositivo.nome}</h3>
+                    <p>
+                      <strong>Potência:</strong> {dispositivo.potencia} W
+                    </p>
+                    <p>
+                      <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
+                    </p>
+                    <p>
+                      <strong>Voltagem:</strong> {dispositivo.voltagem} V
+                    </p>
+                    <p>
+                      <strong>Consumo diário:</strong>{" "}
+                      {dispositivo &&
+                      !isNaN(dispositivo.potencia) &&
+                      !isNaN(dispositivo.tempoUso)
+                        ? (
+                            (dispositivo.potencia *
+                              dispositivo.tempoUso) /
+                            1000
+                          ).toFixed(2)
+                        : "0.00"}{" "}
+                      kWh
+                    </p>
+                    <button
+                      className={styles.btnRemover}
+                      onClick={() => handleRemoverDispositivo(idxGlobal)}
+                    >
+                      Remover
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              className={styles.btnRemoverTodos}
+              onClick={() => handleRemoverTodosDoComodo(comodo.id)}
+            >
+              Remover todos
+            </button>
+          </section>
+        );
+      })}
 
       {mostrarModal && comodoSelecionado && (
         <ModalEquipamentos

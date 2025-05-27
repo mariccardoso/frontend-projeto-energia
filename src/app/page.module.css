@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 .paginaSimulador {
   padding: 40px;
   background-color: #f4f4f4;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -50,20 +53,14 @@
 }
 
 @keyframes fadeInCard {
-<<<<<<< Updated upstream
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
-=======
   from {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
->>>>>>> Stashed changes
 }
 
 .cardDispositivo h3 {
@@ -129,29 +126,70 @@
   color: #f0f0f0;
   border: solid 2px #4d4d4d;
 }
-
-<<<<<<< Updated upstream
-=======
 /* Sessão de cada cômodo */
 .sessaoComodo {
   margin-bottom: 32px;
-  padding: 24px 18px;
-  background: #f7f7fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px #0001;
-  border: 1px solid #e0e0e0;
+  padding: 32px 24px;
+  background: #292929;
+  border-radius: 18px;
+  color: #f7f7fa;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2rem;
+}
+
+.sessaoComodo > * {
+  align-self: flex-start;
+  text-align: left;
 }
 
 /* Título do cômodo */
 .tituloComodo {
   margin-bottom: 16px;
-  color: #1a1a1a;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #ffd600;
+  font-size: 2.8rem;
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  padding-left: 18px;
+  transition: 0.2s;
+  overflow: visible;
 }
 
+/* Botão remover todos */
+.btnRemoverTodos {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  width: auto;
+  min-width: 140px;
+  max-width: 200px;
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 0;
+  background: #ffd600;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 16px;
+  font-size: 1.3rem;
+}
 
+.btnRemoverTodos:hover {
+  background: #cdab01;
+  color: #000000;
+}
 
 /* Container dos cards */
 .cardsDispositivos {
@@ -162,7 +200,7 @@
 }
 
 /* Card de dispositivo */
-/* .cardDispositivo {
+.cardDispositivo {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 4px #0002;
@@ -174,9 +212,9 @@
   flex-direction: column;
   gap: 6px;
   border: 1px solid #ececec;
-} */
+}
 
-/* .cardDispositivo h3 {
+.cardDispositivo h3 {
   margin: 0 0 8px 0;
   font-size: 1.15rem;
   color: #222;
@@ -186,7 +224,7 @@
   margin: 0;
   font-size: 0.98rem;
   color: #444;
-} */
+}
 
 .btnRemover {
   margin-top: 10px;
@@ -194,8 +232,8 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 6px 14px;
-  font-size: 0.98rem;
+  padding: 6px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   align-self: flex-end;
@@ -206,7 +244,6 @@
   background: #e65100;
 }
 
->>>>>>> Stashed changes
 /* Responsividade */
 @media (max-width: 900px) {
   .superior {

@@ -7,13 +7,8 @@
   border-radius: 18px;
   box-shadow: 0 4px 24px #0007;
   padding: 24px 0 32px 0;
-  animation: fadeIn 0.7s;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px);}
-  to { opacity: 1; transform: translateY(0);}
-}
 
 .plantaImg {
   width: 100%;
@@ -40,17 +35,5 @@
   transition: background 0.2s, color 0.2s, transform 0.15s;
   outline: none;
   z-index: 2;
-  animation: popIn 0.7s;
 }
 
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.3);}
-  to { opacity: 1; transform: scale(1);}
-}
-
-.botaoComodo:hover, .botaoComodo:focus {
-  background: linear-gradient(90deg, #ffbb28 60%, #a28ef0 100%);
-  color: #fff;
-  transform: scale(1.08);
-  box-shadow: 0 4px 18px #0009;
-}

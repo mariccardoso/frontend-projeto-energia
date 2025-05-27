@@ -12,6 +12,8 @@ export default function PlantaInterativa({ comodos, onAbrirModal }) {
     Quarto: { top: "70%", left: "80%" },
   };
 
+  console.log("comodos recebidos:", comodos); 
+
   return (
     <div className={styles.plantaContainer}>
       <img
