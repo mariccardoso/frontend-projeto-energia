@@ -17,7 +17,7 @@ const Page = () => {
 
   // Buscar cômodos ao carregar a página
   useEffect(() => {
-    fetch('http://localhost:4000/comodos')
+    fetch('https://api-energia.projetosds.tech/comodos')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -105,16 +105,16 @@ const Page = () => {
                   <div key={dispositivo.nome + '+' + idx} className={styles.cardDispositivo}>
                     <h3>{dispositivo.nome}</h3>
                     <p>
-                      <strong>Potência:</strong> {dispositivo.potencia} W
+                      <span>Potência:</span> {dispositivo.potencia} W
                     </p>
                     <p>
-                      <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
+                      <span>Tempo de uso:</span> {dispositivo.tempoUso} h/dia
                     </p>
                     <p>
-                      <strong>Voltagem:</strong> {dispositivo.voltagem} V
+                      <span>Voltagem:</span> {dispositivo.voltagem} V
                     </p>
                     <p>
-                      <strong>Consumo diário:</strong>{" "}
+                      <span>Consumo diário:</span>{" "}
                       {dispositivo &&
                       !isNaN(dispositivo.potencia) &&
                       !isNaN(dispositivo.tempoUso)
