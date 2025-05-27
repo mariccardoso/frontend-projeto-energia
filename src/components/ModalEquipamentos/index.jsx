@@ -74,12 +74,6 @@ export default function ModalEquipamentos({ comodo, onFechar, onAdicionar }) {
               <p>
                 <strong>Corrente:</strong> {selecionado.corrente}A
               </p>
-              <p>
-                <strong>Marca:</strong> {selecionado.marca || "-"}
-              </p>
-              <p>
-                <strong>Descrição:</strong> {selecionado.descricao || "-"}
-              </p>
             </div>
           )}
 

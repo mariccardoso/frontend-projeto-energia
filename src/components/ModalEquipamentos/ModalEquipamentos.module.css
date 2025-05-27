@@ -1,3 +1,26 @@
+/* =========================
+   VARIÁVEIS DE CORES LOCAIS
+   ========================= */
+:root {
+  --cor-modal-bg: #292929;
+  --cor-modal-txt: #f3f3f3;
+  --cor-modal-titulo: #ffe600;
+  --cor-modal-borda: #ffe60033;
+  --cor-modal-btn-fechar: #fff;
+  --cor-modal-btn-fechar-hover: #ffbb28;
+  --cor-modal-btn-confirmar: #43a047;
+  --cor-modal-btn-confirmar-hover: #2e7d32;
+  --cor-modal-info-bg: rgb(0, 0, 0);
+  --cor-modal-info-txt: #f4f4f4;
+  --cor-modal-input-bg: rgb(0, 0, 0);
+  --cor-modal-input-focus: #43a047;
+  --cor-modal-shadow: 0 8px 32px #000a;
+  --cor-modal-shadow-btn: 0 2px 8px rgb(0, 0, 0);
+}
+
+/* =========================
+   OVERLAY E ANIMAÇÕES
+   ========================= */
 .modalOverlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -15,10 +38,10 @@
 }
 
 .modal {
-  background: #23232b;
-  color: #f3f3f3;
+  background: var(--cor-modal-bg);
+  color: var(--cor-modal-txt);
   border-radius: 18px;
-  box-shadow: 0 8px 32px #000a;
+  box-shadow: var(--cor-modal-shadow);
   padding: 32px 28px 24px 28px;
   min-width: 340px;
   max-width: 95vw;
@@ -31,29 +54,39 @@
   to { transform: scale(1) translateY(0); opacity: 1; }
 }
 
+/* =========================
+   BOTÃO FECHAR
+   ========================= */
 .fechar {
   position: absolute;
   top: 14px;
   right: 18px;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--cor-modal-btn-fechar);
   font-size: 2rem;
   cursor: pointer;
   transition: color 0.2s;
 }
 .fechar:hover {
-  color: #ffbb28;
+  color: var(--cor-modal-btn-fechar-hover);
 }
 
+/* =========================
+   TÍTULO DO MODAL
+   ========================= */
 .titulo {
   text-align: center;
   font-size: 1.7rem;
   margin-bottom: 18px;
-  color: #4d4d4d ;
+  color: var(--cor-modal-titulo);
   letter-spacing: 1px;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
+/* =========================
+   FORMULÁRIO
+   ========================= */
 .formulario {
   display: flex;
   flex-direction: column;
@@ -62,52 +95,102 @@
 
 .label {
   font-size: 1rem;
-  color: #f3f3f3;
+  color: var(--cor-modal-txt);
   margin-bottom: 4px;
 }
 
+/* =========================
+   INPUTS E SELECTS
+   ========================= */
 .select, .input {
   width: 100%;
   padding: 8px 10px;
   border-radius: 8px;
   border: none;
   margin-top: 6px;
-  background: #18181b;
-  color: #f3f3f3;
+  background: var(--cor-modal-input-bg);
+  color: var(--cor-modal-txt);
   font-size: 1rem;
   outline: none;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, border 0.2s;
   box-shadow: 0 1px 4px #0003;
-}
-.select:focus, .input:focus {
-  box-shadow: 0 0 0 2px #4d4d4d ;
+  border: 1.5px solid transparent;
+  appearance: none;
+  position: relative;
+  z-index: 1;
 }
 
+.select:focus, .input:focus {
+  box-shadow: 0 0 0 2px var(--cor-modal-input-focus);
+  border: 1.5px solid var(--cor-modal-input-focus);
+}
+
+/* Animação ao abrir o select (simula com scale) */
+.select:focus-visible {
+  animation: selectPop 0.25s;
+}
+@keyframes selectPop {
+  from { transform: scale(0.97); }
+  to { transform: scale(1); }
+}
+
+/* =========================
+   INFORMAÇÃO DO EQUIPAMENTO
+   ========================= */
 .infoEquipamento {
-  background: #18181b;
+  background: var(--cor-modal-info-bg);
   border-radius: 8px;
   padding: 10px 14px;
   margin-bottom: 6px;
-  color: #ffbb28;
+  color: var(--cor-modal-info-txt);
   font-size: 0.98rem;
   animation: fadeIn 0.5s;
 }
 
+/* =========================
+   BOTÃO CONFIRMAR (ADICIONAR)
+   ========================= */
 .confirmar {
-  background: linear-gradient(90deg, #4d4d4d 60%, #ffbb28 100%);
-  color: #18181b;
+  background: var(--cor-modal-btn-confirmar);
+  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 10px 0;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
-  box-shadow: 0 2px 8px #0004;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  box-shadow: var(--cor-modal-shadow-btn);
+  transition: background 0.18s, color 0.18s, transform 0.13s, box-shadow 0.18s;
+  width: 8rem;
+  min-width: 100px;
+  max-width: 160px;
+  align-self: flex-end;
+  letter-spacing: 0.5px;
 }
+
 .confirmar:hover {
-  background: linear-gradient(90deg, #ffbb28 60%, #4d4d4d 100%);
+  background: var(--cor-modal-btn-confirmar-hover);
   color: #fff;
   transform: scale(1.04);
+  box-shadow: 0 4px 18px #43a04755;
+}
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width: 600px) {
+  .modal {
+    min-width: 90vw;
+    padding: 18px 6px 14px 6px;
+  }
+  .titulo {
+    font-size: 1.1rem;
+  }
+  .confirmar {
+    width: 100%;
+    min-width: 0;
+    font-size: 1rem;
+    padding: 8px 0;
+  }
 }
