@@ -46,6 +46,41 @@
 }
 
 /* =========================
+   CABEÇALHO DO PROJETO
+   ========================= */
+
+.cabecalhoProjeto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Alinha um em cada canto */
+  width: 100%;
+  max-width: 1200px; /* opcional: limite de largura para telas grandes */
+  margin: 0 auto 36px auto;
+  margin-top: 8px;
+  padding: 0 24px; /* espaçamento lateral */
+  box-sizing: border-box;
+}
+
+.logoSenai {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 4px 10px;
+  display: block;
+}
+
+.cabecalhoProjeto h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #202020;
+  letter-spacing: 2px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-shadow: 0 2px 12px #0002;
+  text-align: left;
+}
+
+/* =========================
    TÍTULOS GERAIS
    ========================= */
 .titulo {
@@ -140,7 +175,7 @@
   color: #ffffff;
   letter-spacing: 1px;
   text-align: left;
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 .cardDispositivo p {
