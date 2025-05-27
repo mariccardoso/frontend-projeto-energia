@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './CardDicas.module.css';
 
 const comodos = [
@@ -40,25 +41,54 @@ const comodos = [
 ];
 
 export default function CardsComodos() {
+  const [cardAberto, setCardAberto] = useState(null);
+  const comodosOrdenados = [...comodos].sort((a, b) =>
+    a.titulo.localeCompare(b.titulo)
+  );
+
   return (
-    <div className={styles.container}>
-      {comodos.map((card, index) => (
-        <div className={styles.card} key={index}>
+    <>
+      <h2
+        style={{
+          textAlign: 'center',
+          marginBottom: '24px',
+          color: '#ffe600',
+          fontWeight: 'bold',
+          fontSize: '2rem'
+        }}
+      >
+        DICAS DE CONSUMO IDEAL 
+      </h2>
+      <div className={styles.container}>
+        {comodosOrdenados.map((card, index) => (
           <div
-            className={styles.imagem}
-            style={{ backgroundImage: `url(${card.imagem})` }}
+            className={`${styles.card} ${cardAberto === index ? styles.aberto : ''}`}
+            key={index}
+            onMouseEnter={() => setCardAberto(index)}
+            onMouseLeave={() => setCardAberto(null)}
           >
-            <div className={styles.overlay}>
-              <h3>{card.titulo}</h3>
-              <ul>
-                {card.dicas.map((dica, idx) => (
-                  <li key={idx}>{dica}</li>
-                ))}
-              </ul>
-            </div>
+            {cardAberto === index ? (
+              <div className={styles.verso}>
+                <h3>{card.titulo}</h3>
+                <ul>
+                  {card.dicas.map((dica, idx) => (
+                    <li key={idx}>{dica}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div
+                className={styles.frente}
+                style={{ backgroundImage: `url(${card.imagem})` }}
+              >
+                <div className={styles.tituloOverlay}>
+                  <span>{card.titulo}</span>
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
