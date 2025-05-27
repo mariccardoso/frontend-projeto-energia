@@ -12,13 +12,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Simulador de consumo de energia",
+  title: "SIMULADOR | CONSUMO DE ENERGIA",
   description: "Projeto desenvolvido para simular o consumo de energia",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link
+          rel="icon"
+          href="https://cdn-icons-png.flaticon.com/512/169/169367.png"
+          type="image/png"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
