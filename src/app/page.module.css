@@ -3,7 +3,7 @@
 
 .paginaSimulador {
   padding: 40px;
-  background-color: #f9fbfd;
+  background-color: #f4f4f4;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -37,7 +37,7 @@
 
 .cardDispositivo {
   background: #23232b;
-  color: #f3f3f3;
+  color: #ffe600;
   border-radius: 16px;
   box-shadow: 0 4px 24px #0007;
   padding: 28px 22px 22px 22px;
@@ -64,7 +64,7 @@
 }
 
 .cardDispositivo h3 {
-  color: #ffbb28;
+  color: #ffe600;
   font-size: 1.25rem;
   margin-bottom: 8px;
   text-align: center;
@@ -78,14 +78,14 @@
 }
 
 .cardDispositivo strong {
-  color: #a28ef0;
+  color: #4d4d4d;
   font-weight: 600;
 }
 
 .btnRemover {
-  background: linear-gradient(90deg, #ef6b6b 60%, #a28ef0 100%);
+  background-color: #4d4d4d;
   color: #fff;
-  border: none;
+  border: solid 2px #ffbb28;
   border-radius: 8px;
   padding: 8px 0;
   font-size: 1rem;
@@ -95,16 +95,17 @@
   box-shadow: 0 2px 8px #0004;
   transition: background 0.2s, color 0.2s, transform 0.15s;
 }
+
 .btnRemover:hover {
-  background: linear-gradient(90deg, #a28ef0 60%, #ef6b6b 100%);
+
   color: #fff;
   transform: scale(1.04);
 }
 
 .btnRemoverTodos {
-  background: linear-gradient(90deg, #ffbb28 60%, #a28ef0 100%);
-  color: #18181b;
-  border: none;
+  background: #4d4d4d;
+  color: #f0f0f0;
+  border: solid 2px #ffbb28;
   border-radius: 8px;
   padding: 10px 0;
   font-size: 1.1rem;
@@ -119,12 +120,12 @@
   margin-left: auto;
   margin-right: auto;
 }
-.btnRemoverTodos:hover {
-  background: linear-gradient(90deg, #a28ef0 60%, #ffbb28 100%);
-  color: #fff;
-  transform: scale(1.04);
-}
 
+.btnRemoverTodos:hover {
+  background: #ffbb28;
+  color: #f0f0f0;
+  border: solid 2px #4d4d4d;
+}
 /* Sessão de cada cômodo */
 .sessaoComodo {
   margin-bottom: 32px;
@@ -238,6 +239,7 @@
   align-self: flex-end;
   transition: background 0.2s;
 }
+
 .btnRemover:hover {
   background: #e65100;
 }
