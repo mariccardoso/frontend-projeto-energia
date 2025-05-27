@@ -12,7 +12,12 @@ const cores = ['#ffe600', '#4d4d4d', '#00a86b', '#ff6f61', '#6b5b95', '#feb236']
 
 
 const DashboardConsumo = ({ equipamentos }) => {
-  if (!equipamentos.length) return <p className={styles.vazio}>Nenhum equipamento adicionado.</p>;
+  if (!equipamentos.length) return (
+  <div className={styles.vazio}>
+    <div className={styles.loader}></div>
+    <span>Adicione dispositivos para começar a calcular o consumo de energia!</span>
+  </div>
+);
 
   // Consumo total dos dispositivos
   const consumoTotal = equipamentos.reduce((total, item) => {

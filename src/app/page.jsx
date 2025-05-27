@@ -7,6 +7,7 @@ import ContaDeEnergia from "../components/ContaDeEnergia";
 import DashboardConsumo from "../components/DashboardConsumo";
 import CardDicas from "../components/CardDicas";
 import SecaoInicial from "@/components/SecaoInicial";
+import Equipe from "@/components/Equipe";
 import styles from "./page.module.css";
 
 const Page = () => {
@@ -24,17 +25,17 @@ const Page = () => {
         }
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         if (Array.isArray(data)) {
           setComodos(data);
         } else {
           setComodos([]);
-          console.error('API response is not an array:', data);
+          console.error("API response is not an array:", data);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         setComodos([]);
-        console.error('Erro ao buscar cômodos:', err);
+        console.error("Erro ao buscar cômodos:", err);
       });
   }, []);
 
@@ -53,9 +54,7 @@ const Page = () => {
 
   // Remover um dispositivo pelo índice global
   const handleRemoverDispositivo = (idx) => {
-    setDispositivosAdicionados((prev) =>
-      prev.filter((_, i) => i !== idx)
-    );
+    setDispositivosAdicionados((prev) => prev.filter((_, i) => i !== idx));
   };
 
   // Remover todos os dispositivos de um cômodo
@@ -102,13 +101,17 @@ const Page = () => {
                     d.tempoUso === dispositivo.tempoUso
                 );
                 return (
-                  <div key={dispositivo.nome + '+' + idx} className={styles.cardDispositivo}>
+                  <div
+                    key={dispositivo.nome + "+" + idx}
+                    className={styles.cardDispositivo}
+                  >
                     <h3>{dispositivo.nome}</h3>
                     <p>
                       <span>Potência:</span> {dispositivo.potencia} W
                     </p>
                     <p>
-                      <span>Tempo de uso:</span> {dispositivo.tempoUso} h/dia
+                      <strong>Tempo de uso:</strong> {dispositivo.tempoUso}{" "}
+                      h/dia
                     </p>
                     <p>
                       <span>Voltagem:</span> {dispositivo.voltagem} V
@@ -119,8 +122,7 @@ const Page = () => {
                       !isNaN(dispositivo.potencia) &&
                       !isNaN(dispositivo.tempoUso)
                         ? (
-                            (dispositivo.potencia *
-                              dispositivo.tempoUso) /
+                            (dispositivo.potencia * dispositivo.tempoUso) /
                             1000
                           ).toFixed(2)
                         : "0.00"}{" "}
@@ -155,6 +157,8 @@ const Page = () => {
       )}
 
       <CardDicas />
+
+      <Equipe />
     </div>
   );
 };
