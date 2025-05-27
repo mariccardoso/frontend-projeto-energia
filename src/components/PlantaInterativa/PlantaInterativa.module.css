@@ -28,9 +28,9 @@
 .botaoComodo {
   position: absolute;
   transform: translate(-50%, -50%);
-  background: linear-gradient(90deg, #a28ef0 60%, #ffbb28 100%);
-  color: #18181b;
-  border: none;
+  background: #4d4d4d;
+  color: #f4f4f4;
+  border: solid 2px #ffe600;
   border-radius: 50px;
   padding: 12px 28px;
   font-size: 1.1rem;
