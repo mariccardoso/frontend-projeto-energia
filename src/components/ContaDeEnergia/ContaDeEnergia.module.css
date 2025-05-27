@@ -1,33 +1,35 @@
 .contaEnergia {
-  max-width: 500px;
-  background-color: linear-gradient(135deg, #f8fafc 70%, #e3f2fd 100%);
+  max-width: 700px;
+  background-color: #292929;
     border: 2px solid #cfd8dc;
     border-radius: 16px;
-    padding: 20px;
+    padding: 10px;
     width: 35%;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 573px;
+  overflow-y: auto;
   }
 
   .contaEnergia h2 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: 11px;
-    color: #3f3c3c;
+    color: #ffe600;
     font-weight: 700;
     letter-spacing: 0.5px;
-    border-bottom: 2px solid #b27b44;
+    border-bottom: 2px solid #bababa;
     padding-bottom: 10px;
     
   }
   
   .infoConta p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 3px 0;
     color: #37474f;
-    background: #dee6d6;
+    background: #f9e971;
     border-radius: 8px;
     padding: 8px 14px;
     transition: background-color 0.3s ease;
@@ -40,13 +42,13 @@
   }
   
   .infoConta p:hover {
-    background-color: #e3f2fd;
+    background-color: #bababaf0; 
   }
 
   .iconDinheiro {
     vertical-align: middle;
     margin-right: 8px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
   }

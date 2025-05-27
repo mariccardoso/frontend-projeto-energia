@@ -19,7 +19,7 @@ const ContaDeEnergia = ({ equipamentos }) => {
   return (
     <div className={styles.contaEnergia}>
       <h2>
-      <Image className={styles.iconDinheiro} src="/iconDinheiro.png" alt="Ícone de Dinheiro" width={30} height={30} />
+      <Image className={styles.iconDinheiro} src="/iconDinheiro.png" alt="Ícone de Dinheiro" width={70} height={70} />
       Conta de Energia
       </h2>
       <div className={styles.infoConta}>
