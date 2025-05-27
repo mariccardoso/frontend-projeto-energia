@@ -1,5 +1,4 @@
 .header { 
-    padding: 20px;
     color: black;
     display: flex;
     justify-content: space-between;
@@ -8,8 +7,9 @@
 }
 
 .logo h1{
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
+    color:rgb(186, 186, 186)
 }
 
 .menu {
@@ -21,14 +21,14 @@
     display: flex;
     list-style: none;
     padding: 0;
-    gap: 80px;
+    gap: 60px;
 }
 
 .menu li {
     display: inline;
 }
 .menu a {
-    color: black;
+    color:rgb(186, 186, 186);
     text-decoration: none;
     font-size: 1.2rem;
 }
