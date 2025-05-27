@@ -1,0 +1,108 @@
+.equipe {
+  background: #000;
+  color: #ffe600;
+  border-top: 4px solid #ffe600;
+  padding: 3rem 1rem 2rem 1rem;
+  margin-top: 3rem;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 -2px 12px #0003;
+  width: 100%;
+}
+
+.subtitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffe600;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 6px #4d4d4d55;
+}
+
+.equipeList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 2rem;
+  justify-items: center;
+  align-items: stretch;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.equipeMember {
+  background: #292929;
+  border-radius: 12px;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  min-width: 180px;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 8px #0002;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.equipeMember:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 18px #0005;
+}
+
+.profilePic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 0.7rem;
+  background: #fff;
+  object-fit: cover;
+}
+
+.memberName {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffe600;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.githubLink {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffe600;
+  background: none;
+  border: 1px solid #ffe600;
+  border-radius: 6px;
+  padding: 4px 16px;
+  margin: 0.7rem auto 0 auto;
+  display: block;
+  text-align: center;
+  transition: 
+    background 0.2s, 
+    color 0.2s, 
+    transform 0.2s,
+    box-shadow 0.3s;
+  box-shadow: 0 0 0px #ffe600;
+}
+
+.githubLink:hover {
+  background: #ffe600;
+  color: #4d4d4d;
+  transform: scale(1.08);
+  border-color: #ffe600;
+  box-shadow: 0 0 16px 4px #ffe600, 0 0 32px 8px #ffe60099;
+}
+
+@media (max-width: 900px) {
+  .equipeList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .equipeList {
+    grid-template-columns: 1fr;
+  }
+}

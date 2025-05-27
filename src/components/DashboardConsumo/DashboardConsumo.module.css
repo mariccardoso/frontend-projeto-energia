@@ -1,8 +1,8 @@
 .dashboardonConsumo {
-  background: #18181b;
-  color: #f3f3f3;
+  background: #292929;
+  color: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px #0005;
+  box-shadow: 0 4px 14px #0000008e;
   padding: 32px 24px;
   margin: 32px 0;
   animation: fadeIn 0.8s;
@@ -21,18 +21,13 @@
 }
 
 .grafico {
-  background: #23232b;
+  background: #292929;
   border-radius: 12px;
-  box-shadow: 0 2px 12px #0003;
   padding: 24px 16px;
-  min-width: 320px;
+  min-width: 300px;
   flex: 1 1 350px;
   animation: fadeIn 1.2s;
   transition: box-shadow 0.2s;
-}
-
-.grafico:hover {
-  box-shadow: 0 6px 24px #0007;
 }
 
 .titulo {
@@ -43,24 +38,21 @@
   text-align: center;
 }
 
+.titulo span {
+  color: #ffe600;
+}
+
 .subtitulo {
-  color: #a28ef0;
+  color: #bababa ;
   font-size: 1.2rem;
   margin-bottom: 16px;
   text-align: center;
 }
 
 .vazio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #ffd600;
-  font-size: 1.2rem;
-  font-weight: 500;
-  min-height: 200px;
-  gap: 18px;
-  border-radius: 12px;
+  color: #ffbb28;
+  text-align: center;
+  font-size: 1.1rem;
   margin: 32px 0;
 }
 

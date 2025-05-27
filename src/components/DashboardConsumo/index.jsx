@@ -8,7 +8,8 @@ import {
 
 import styles from './DashboardConsumo.module.css';
 
-const cores = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28EF0', '#EF6B6B'];
+const cores = ['#ffe600', '#4d4d4d', '#00a86b', '#ff6f61', '#6b5b95', '#feb236'];
+
 
 const DashboardConsumo = ({ equipamentos }) => {
   if (!equipamentos.length) return (
@@ -47,10 +48,10 @@ const DashboardConsumo = ({ equipamentos }) => {
 
   return (
     <div className={styles.dashboardonConsumo}>
-      <h2 className={styles.titulo}>📊 Análise de Consumo</h2>
+      <h2 className={styles.titulo}>Análise de <span>Consumo</span></h2>
       <div className={styles.graficos}>
         <div className={styles.grafico}>
-          <h4>Consumo por Dispositivo (%)</h4>
+          <h4 className={styles.subtitulo}>Consumo por Dispositivo (%)</h4>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
@@ -76,7 +77,7 @@ const DashboardConsumo = ({ equipamentos }) => {
               <XAxis type="number" unit=" kWh" />
               <YAxis dataKey="nome" type="category" width={100} />
               <Tooltip />
-              <Bar dataKey="consumo" fill="#82ca9d" />
+              <Bar dataKey="consumo" fill="#fae01e" />
             </BarChart>
           </ResponsiveContainer>
         </div>
