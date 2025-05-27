@@ -25,7 +25,6 @@ const Page = () => {
         return res.json();
       })
       .then(data => {
-        console.log('API response:', data);
         if (Array.isArray(data)) {
           setComodos(data);
         } else {
@@ -52,16 +51,18 @@ const Page = () => {
     setMostrarModal(false);
   };
 
-  // Remover um dispositivo pelo índice
+  // Remover um dispositivo pelo índice global
   const handleRemoverDispositivo = (idx) => {
     setDispositivosAdicionados((prev) =>
       prev.filter((_, i) => i !== idx)
     );
   };
 
-  // Remover todos os dispositivos
-  const handleRemoverTodos = () => {
-    setDispositivosAdicionados([]);
+  // Remover todos os dispositivos de um cômodo
+  const handleRemoverTodosDoComodo = (comodoId) => {
+    setDispositivosAdicionados((prev) =>
+      prev.filter((d) => d.comodoId !== comodoId)
+    );
   };
 
   return (
@@ -79,71 +80,71 @@ const Page = () => {
 
       <DashboardConsumo equipamentos={dispositivosAdicionados} />
 
-      {/* Cards dos dispositivos adicionados */}
-      <div className={styles.cardsDispositivos}>
-        {dispositivosAdicionados.length > 0 && (
-          <button
-            className={styles.btnRemoverTodos}
-            onClick={handleRemoverTodos}
-          >
-            Remover todos
-          </button>
-        )}
-        {dispositivosAdicionados.map((dispositivo, idx) => {
-          // Busca o nome do cômodo pelo comodoId no array de comodos
-          const nomeComodo =
-            dispositivo.comodo?.nome ||
-            comodos.find((c) => c.id === dispositivo.comodoId)?.nome ||
-            dispositivo.comodoNome ||
-            dispositivo.comodoId;
+      {/* Dispositivos agrupados por cômodo */}
+      {comodos.map((comodo) => {
+        // Filtra dispositivos adicionados desse cômodo
+        const dispositivosDoComodo = dispositivosAdicionados.filter(
+          (d) => d.comodoId === comodo.id
+        );
 
-          return (
-            <div key={dispositivo.nome + '+' + idx} className={styles.cardDispositivo}>
-              <h3>{dispositivo.nome}</h3>
-              <p>
-                <strong>Cômodo:</strong> {nomeComodo}
-              </p>
-              <p>
-                <strong>Potência:</strong> {dispositivo.potencia} W
-              </p>
-              <p>
-                <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
-              </p>
-              <p>
-                <strong>Voltagem:</strong> {dispositivo.voltagem} V
-              </p>
-              <p>
-                <strong>Corrente:</strong> {dispositivo.corrente} A
-              </p>
-              <p>
-                <strong>Marca:</strong> {dispositivo.marca}
-              </p>
-              <p>
-                <strong>Descrição:</strong> {dispositivo.descricao}
-              </p>
-              <p>
-                <strong>Consumo diário:</strong>{" "}
-                {dispositivo &&
-                !isNaN(dispositivo.potencia) &&
-                !isNaN(dispositivo.tempoUso)
-                  ? (
-                      (dispositivo.potencia *
-                        dispositivo.tempoUso) /
-                      1000
-                    ).toFixed(2)
-                  : "0.00"}{" "}
-                kWh
-              </p>
-              <button
-                className={styles.btnRemover}
-                onClick={() => handleRemoverDispositivo(idx)}
-              >
-                Remover
-              </button>
+        if (dispositivosDoComodo.length === 0) return null;
+
+        return (
+          <section key={comodo.id} className={styles.sessaoComodo}>
+            <h2 className={styles.tituloComodo}>{comodo.nome}</h2>
+            <button
+              className={styles.btnRemoverTodos}
+              onClick={() => handleRemoverTodosDoComodo(comodo.id)}
+            >
+              Remover todos
+            </button>
+            <div className={styles.cardsDispositivos}>
+              {dispositivosDoComodo.map((dispositivo, idx) => {
+                // Para remover corretamente, pegue o índice global
+                const idxGlobal = dispositivosAdicionados.findIndex(
+                  (d) =>
+                    d.comodoId === comodo.id &&
+                    d.nome === dispositivo.nome &&
+                    d.tempoUso === dispositivo.tempoUso
+                );
+                return (
+                  <div key={dispositivo.nome + '+' + idx} className={styles.cardDispositivo}>
+                    <h3>{dispositivo.nome}</h3>
+                    <p>
+                      <strong>Potência:</strong> {dispositivo.potencia} W
+                    </p>
+                    <p>
+                      <strong>Tempo de uso:</strong> {dispositivo.tempoUso} h/dia
+                    </p>
+                    <p>
+                      <strong>Voltagem:</strong> {dispositivo.voltagem} V
+                    </p>
+                    <p>
+                      <strong>Consumo diário:</strong>{" "}
+                      {dispositivo &&
+                      !isNaN(dispositivo.potencia) &&
+                      !isNaN(dispositivo.tempoUso)
+                        ? (
+                            (dispositivo.potencia *
+                              dispositivo.tempoUso) /
+                            1000
+                          ).toFixed(2)
+                        : "0.00"}{" "}
+                      kWh
+                    </p>
+                    <button
+                      className={styles.btnRemover}
+                      onClick={() => handleRemoverDispositivo(idxGlobal)}
+                    >
+                      Remover
+                    </button>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          </section>
+        );
+      })}
 
       {mostrarModal && comodoSelecionado && (
         <ModalEquipamentos

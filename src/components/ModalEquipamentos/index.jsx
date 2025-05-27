@@ -1,53 +1,33 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import styles from "./ModalEquipamentos.module.css";
 
 export default function ModalEquipamentos({ comodo, onFechar, onAdicionar }) {
-  const [modelos, setModelos] = useState([]);
   const [selecionado, setSelecionado] = useState(null);
   const [tempoUso, setTempoUso] = useState("");
 
-  // Buscar modelos do backend ao abrir o modal
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/modelos")
-      .then((res) => setModelos(res.data))
-      .catch((err) => console.error("Erro ao buscar modelos:", err));
-  }, []);
-
-  // Handler para selecionar modelo pelo nome
+  // Handler para selecionar dispositivo pelo nome
   const handleSelect = (e) => {
-    const modelo = modelos.find((item) => item.nome === e.target.value);
-    setSelecionado(modelo);
+    const dispositivo = comodo.dispositivos.find(
+      (item) => item.nome === e.target.value
+    );
+    setSelecionado(dispositivo);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!selecionado || !tempoUso) return;
 
+    // Monta o payload com os dados do dispositivo selecionado e tempo de uso informado
     const payload = {
-      nome: selecionado.nome,
-      potencia: selecionado.potencia,
-      voltagem: selecionado.voltagem,
-      corrente: selecionado.corrente,
+      ...selecionado,
       tempoUso: Number(tempoUso),
       comodoId: comodo.id,
     };
 
-    try {
-      const res = await axios.post(
-        "http://localhost:4000/dispositivos",
-        payload
-      );
-      alert("Equipamento adicionado com sucesso!");
-      onAdicionar(res.data.dispositivo);
-      onFechar();
-    } catch (error) {
-      console.error("Erro ao adicionar equipamento:", error);
-      alert("Erro ao adicionar equipamento.");
-    }
+    onAdicionar(payload);
+    onFechar();
   };
 
   return (
@@ -69,11 +49,17 @@ export default function ModalEquipamentos({ comodo, onFechar, onAdicionar }) {
               <option value="" disabled>
                 Selecione
               </option>
-              {modelos.map((eq) => (
-                <option key={eq.nome} value={eq.nome}>
-                  {eq.nome}
+              {comodo.dispositivos && comodo.dispositivos.length > 0 ? (
+                comodo.dispositivos.map((eq, idx) => (
+                  <option key={eq.nome + idx} value={eq.nome}>
+                    {eq.nome}
+                  </option>
+                ))
+              ) : (
+                <option disabled>
+                  Nenhum equipamento cadastrado neste cômodo
                 </option>
-              ))}
+              )}
             </select>
           </label>
 
@@ -87,6 +73,12 @@ export default function ModalEquipamentos({ comodo, onFechar, onAdicionar }) {
               </p>
               <p>
                 <strong>Corrente:</strong> {selecionado.corrente}A
+              </p>
+              <p>
+                <strong>Marca:</strong> {selecionado.marca || "-"}
+              </p>
+              <p>
+                <strong>Descrição:</strong> {selecionado.descricao || "-"}
               </p>
             </div>
           )}
