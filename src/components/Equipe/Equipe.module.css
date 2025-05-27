@@ -1,5 +1,5 @@
 .equipe {
-  background: #000;
+  background: #292929;
   color: #ffe600;
   border-top: 4px solid #ffe600;
   padding: 3rem 1rem 2rem 1rem;
@@ -32,7 +32,7 @@
 }
 
 .equipeMember {
-  background: #292929;
+  background: #000;
   border-radius: 12px;
   padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   min-width: 180px;
