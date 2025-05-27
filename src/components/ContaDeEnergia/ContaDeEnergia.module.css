@@ -1,39 +1,59 @@
+/* =========================
+   VARIÁVEIS DE CORES LOCAIS
+   ========================= */
+:root {
+  --cor-bg-conta: #292929;
+  --cor-titulo-conta: #ffe600;
+  --cor-borda-titulo: #bababa;
+  --cor-icone: #ffe600;
+  --cor-bloco-bg: #f7f7fa;
+  --cor-bloco-txt: #37474f;
+  --cor-bloco-bg-hover: #bababaf0;
+  --cor-tabela-bg: #fafafa;
+  --cor-tabela-th-bg: #ffe600;
+  --cor-tabela-th-txt: #222;
+  --cor-tabela-td-txt: #222;
+}
+
+/* =========================
+   CONTAINER PRINCIPAL
+   ========================= */
 .contaEnergia {
   max-width: 100vw;
-  background: #fff;
-  border-radius: 2vw;
+  background: var(--cor-bg-conta);
+  border-radius: 20px;
   box-shadow: 0 2px 8px #0002;
-  padding: 2vw 2vw;
-  margin: 2vw auto;
+  padding: 2rem 2rem;
   color: #222;
-  width: 45vw;
-  min-width: 0;
+  width: 25rem;
   height: 36rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  border: 2px solid #cfd8dc;
   font-family: 'Poppins', sans-serif;
-  gap: 1vw;
+  gap: 1rem;
 }
 
+/* =========================
+   TÍTULO E ÍCONE
+   ========================= */
 .contaEnergia h2 {
-  font-size: 2.5vw;
-  margin-bottom: 1vw;
-  color: #ffe600;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--cor-titulo-conta);
   font-weight: 700;
   letter-spacing: 0.5px;
-  border-bottom: 2px solid #bababa;
-  padding-bottom: 1vw;
+  border-bottom: 2px solid var(--cor-borda-titulo);
+  padding-bottom: 1rem;
   display: flex;
   align-items: center;
 }
 
 .iconDinheiro {
   vertical-align: middle;
-  margin-right: 1vw;
-  width: 3vw;
-  height: 3vw;
+  margin-right: 1rem;
+  width: 3rem;
+  height: 3rem;
   min-width: 30px;
   min-height: 30px;
   max-width: 60px;
@@ -41,48 +61,67 @@
   display: inline-block;
 }
 
+/* =========================
+   BLOCOS DE CONSUMO E VALOR
+   ========================= */
 .infoConta {
   display: flex;
-  gap: 2vw;
+  gap: 2rem;
   flex-wrap: wrap;
-  margin-bottom: 2vw;
+  margin-bottom: 2rem;
 }
 
 .blocoConsumo,
 .blocoValor {
-  background: #f7f7fa;
-  border-radius: 1vw;
-  padding: 1vw 2vw;
-  min-width: 180px;
-  flex: 1 1 220px;
+  background: rgb(0, 0, 0);
+  border-radius: 1.2rem;
+  padding: 1.3rem 2.2rem;
+  min-width: 200px;
+  flex: 1 1 240px;
   box-sizing: border-box;
+  box-shadow: 0 4px 18px #0003;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.2s, transform 0.15s, background 0.2s;
 }
 
 .blocoConsumo h3,
 .blocoValor h3 {
-  font-size: 1.3vw;
-  margin-bottom: 0.6vw;
-  color: #222;
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
   text-align: center;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px #0004;
 }
 
 .blocoConsumo p,
 .blocoValor p {
-  margin: 0.3vw 0;
-  font-size: 1.1vw;
-  color: #37474f;
-  background: #f9e971;
-  border-radius: 0.7vw;
-  padding: 0.7vw 1.2vw;
-  transition: background-color 0.3s ease;
+  margin: 0.4rem 0;
+  font-size: 1.08rem;
+  color: #f7f7fa;
+  background: rgba(255,255,255,0.06);
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  transition: background-color 0.3s;
   word-break: break-word;
+  box-shadow: 0 1px 4px #0002;
+}
+
+.blocoConsumo p strong,
+.blocoValor p strong {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .blocoConsumo p:hover,
 .blocoValor p:hover {
-  background-color: #bababaf0;
+  background-color: rgba(255, 230, 0, 0.13);
 }
 
+/* =========================
+   TABELA DE DISPOSITIVOS
+   ========================= */
 .tabelaDispositivos {
   margin-top: 2vw;
   overflow-x: auto;
@@ -91,7 +130,7 @@
 .tabelaSimples {
   width: 100%;
   border-collapse: collapse;
-  background: #fafafa;
+  background: var(--cor-tabela-bg);
   border-radius: 1vw;
   overflow: hidden;
   font-size: 1vw;
@@ -107,15 +146,18 @@
 }
 
 .tabelaSimples th {
-  background: #ffe600;
-  color: #222;
+  background: var(--cor-tabela-th-bg);
+  color: var(--cor-tabela-th-txt);
   font-weight: bold;
 }
 
 .tabelaSimples td {
-  color: #222;
+  color: var(--cor-tabela-td-txt);
 }
 
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
 @media (max-width: 900px) {
   .contaEnergia {
     padding: 18px 6px;

@@ -1,57 +1,218 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+/* =========================
+   VARIÁVEIS DE CORES GLOBAIS
+   ========================= */
+:root {
+  --cor-bg-principal: #f4f4f4;
+  --cor-bg-card: #23232b;
+  --cor-bg-card-fosco: rgb(0, 0, 0);
+  --cor-bg-comodo: #292929;
+  --cor-bg-destaque: #ffe600;
+  --cor-bg-destaque-escuro: #ffd600;
+  --cor-bg-btn-remover: #d32f2f;
+  --cor-bg-btn-remover-hover: #b71c1c;
+  --cor-bg-btn-remover-todos: #d32f2f;
+  --cor-bg-btn-remover-todos-hover: #b71c1c;
 
+  --cor-texto-principal: #222;
+  --cor-texto-claro: #f7f7fa;
+  --cor-texto-destaque: #ffe600;
+  --cor-texto-btn: #fff;
+  --cor-texto-titulo: #2c3e50;
+
+  --cor-borda-card: #ffe60033;
+  --cor-borda-comodo: #bababa;
+  --cor-borda-btn-remover: #ffbb28;
+
+  --sombra-card: 0 4px 24px #0007;
+  --sombra-card-fosco: 0 4px 24px #0005;
+  --sombra-btn: 0 2px 12px #0002;
+  --sombra-btn-hover: 0 4px 18px #d32f2f55;
+  --sombra-card-dispositivo: 0 2px 8px #0003;
+}
+
+/* =========================
+   LAYOUT PRINCIPAL
+   ========================= */
 .paginaSimulador {
   padding: 40px;
-  background-color: #f4f4f4;
+  background-color: var(--cor-bg-principal);
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
+/* =========================
+   TÍTULOS GERAIS
+   ========================= */
 .titulo {
   text-align: center;
   font-size: 2.4rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: var(--cor-texto-titulo);
   margin-bottom: 20px;
 }
 
+/* =========================
+   CONTAINER SUPERIOR (PLANTA + CONTA)
+   ========================= */
 .superior {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  /* gap: 20px; */
+  align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
+  width: 97%;
 }
 
+/* =========================
+   SESSÃO DE CÔMODO
+   ========================= */
+.sessaoComodo {
+  margin-bottom: 32px;
+  padding: 16px 24px;
+  background: var(--cor-bg-comodo);
+  border-radius: 40px;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2rem;
+  width: 100%;
+}
+
+.sessaoComodo > * {
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* =========================
+   TÍTULO DO CÔMODO
+   ========================= */
+.tituloComodo {
+  margin-bottom: 16px;
+  color: var(--cor-bg-destaque-escuro);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  padding-left: 18px;
+  transition: 0.2s;
+  overflow: visible;
+}
+
+/* =========================
+   CARDS DE DISPOSITIVOS
+   ========================= */
 .cardsDispositivos {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
-  justify-content: center;
-  margin: 36px 0 0 0;
+  gap: 18px;
+  margin-top: 10px;
 }
 
 .cardDispositivo {
-  background: #23232b;
-  color: #ffe600;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px #0007;
-  padding: 28px 22px 22px 22px;
-  min-width: 260px;
-  max-width: 320px;
-  flex: 1 1 300px;
+  background: var(--cor-bg-card-fosco);
+  border-radius: 18px;
+  padding: 18px 20px;
+  min-width: 220px;
+  max-width: 260px;
+  flex: 1 1 220px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  animation: fadeInCard 0.7s;
-  position: relative;
-  transition: box-shadow 0.2s, transform 0.15s;
+  backdrop-filter: blur(6px);
+  transition: box-shadow 0.2s, transform 0.15s, background 0.2s;
 }
 
+.cardDispositivo h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.18rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-align: left;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.cardDispositivo p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--cor-texto-claro);
+  letter-spacing: 0.2px;
+}
+
+.cardDispositivo span {
+  color: var(--cor-bg-destaque);
+  font-weight: 600;
+}
+
+/* =========================
+   BOTÕES DE REMOVER
+   ========================= */
+.btnRemover {
+  margin-top: 12px;
+  background: var(--cor-bg-btn-remover);
+  color: var(--cor-texto-btn);
+  border: none;
+  border-radius: 16px;
+  padding: 8px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-start;
+  box-shadow: var(--sombra-card-dispositivo);
+  transition: 0.18s;
+  width: 7.5rem;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.btnRemover:hover {
+  background: var(--cor-bg-btn-remover-hover);
+  color: var(--cor-texto-btn);
+  transform: scale(1.05);
+  box-shadow: var(--sombra-btn-hover);
+}
+
+/* Botão remover todos */
+.btnRemoverTodos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--cor-bg-btn-remover-todos);
+  color: var(--cor-texto-btn);
+  border: none;
+  border-radius: 20px;
+  margin: 16px 0px;
+  padding: 10px 28px;
+  font-size: 1.08rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--sombra-btn);
+  transition: 0.18s;
+  width: 12rem;
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+}
+
+.btnRemoverTodos:hover {
+  background: var(--cor-bg-btn-remover-todos-hover);
+  color: var(--cor-texto-btn);
+  transform: scale(1.05);
+  box-shadow: var(--sombra-btn-hover);
+}
+
+/* =========================
+   ANIMAÇÕES
+   ========================= */
 @keyframes fadeInCard {
   from {
     opacity: 0;
@@ -63,184 +224,9 @@
   }
 }
 
-.cardDispositivo h3 {
-  color: #ffe600;
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  text-align: center;
-  letter-spacing: 1px;
-}
-
-.cardDispositivo p {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-
-.cardDispositivo strong {
-  color: #4d4d4d;
-  font-weight: 600;
-}
-
-.btnRemover {
-  background-color: #4d4d4d;
-  color: #fff;
-  border: solid 2px #ffbb28;
-  border-radius: 8px;
-  padding: 8px 0;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 2px 8px #0004;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
-}
-
-.btnRemover:hover {
-
-  color: #fff;
-  transform: scale(1.04);
-}
-
-.btnRemoverTodos {
-  background: #4d4d4d;
-  color: #f0f0f0;
-  border: solid 2px #ffbb28;
-  border-radius: 8px;
-  padding: 10px 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 18px;
-  box-shadow: 0 2px 8px #0004;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
-  width: 100%;
-  max-width: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btnRemoverTodos:hover {
-  background: #ffbb28;
-  color: #f0f0f0;
-  border: solid 2px #4d4d4d;
-}
-/* Sessão de cada cômodo */
-.sessaoComodo {
-  margin-bottom: 32px;
-  padding: 32px 24px;
-  background: #292929;
-  border-radius: 18px;
-  color: #f7f7fa;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.15s;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 2rem;
-}
-
-.sessaoComodo > * {
-  align-self: flex-start;
-  text-align: left;
-}
-
-/* Título do cômodo */
-.tituloComodo {
-  margin-bottom: 16px;
-  color: #ffd600;
-  font-size: 2.8rem;
-  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-align: left;
-  position: relative;
-  z-index: 2;
-  padding-left: 18px;
-  transition: 0.2s;
-  overflow: visible;
-}
-
-/* Botão remover todos */
-.btnRemoverTodos {
-  margin-top: 10px;
-  background: #4d4d4d;
-  color: #fff;
-  border: solid .5px #ffe600;
-  text-align: center;
-  margin-bottom: 18px;
-  box-shadow: 0 2px 8px #0004;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
-  width: 100%;
-  max-width: 300px;
-  display: block;
-  margin-left: 1px;
-  margin-right: auto;
-}
-
-.btnRemoverTodos:hover {
-  background: #cdab01;
-  color: #000000;
-}
-
-/* Container dos cards */
-.cardsDispositivos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 10px;
-}
-
-/* Card de dispositivo */
-.cardDispositivo {
-  background: #000;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px #0002;
-  padding: 16px 18px;
-  min-width: 220px;
-  max-width: 260px;
-  flex: 1 1 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.cardDispositivo h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.15rem;
-  color: #ffe600;
-}
-
-.cardDispositivo p {
-  margin: 0;
-  font-size: 0.98rem;
-  color: #bababa;
-}
-
-.cardDispositivo span {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.btnRemover {
-  margin-top: 10px;
-  background: #4d4d4d;
-  color: #fff;
-  border: solid .5px #ffe600;
-  border-radius: 5px;
-  padding: 6px;
-  font-size: .8rem;
-  font-weight: 500;
-  cursor: pointer;
-  align-self: flex-end;
-  transition: background 0.2s;
-}
-
-
-/* Responsividade */
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
 @media (max-width: 900px) {
   .superior {
     flex-direction: column;
@@ -249,5 +235,51 @@
 
   .titulo {
     font-size: 1.8rem;
+  }
+  .sessaoComodo {
+    padding: 12px 6px;
+    border-radius: 24px;
+  }
+  .tituloComodo {
+    font-size: 2rem;
+    padding-left: 8px;
+  }
+  .cardDispositivo {
+    min-width: 160px;
+    max-width: 98vw;
+    padding: 12px 8px;
+  }
+  .btnRemoverTodos {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .paginaSimulador {
+    padding: 8px;
+  }
+  .titulo {
+    font-size: 1.2rem;
+  }
+  .sessaoComodo {
+    padding: 8px 2px;
+    border-radius: 14px;
+  }
+  .tituloComodo {
+    font-size: 1.1rem;
+    padding-left: 4px;
+  }
+  .cardDispositivo {
+    min-width: 120px;
+    max-width: 100vw;
+    padding: 8px 2px;
+  }
+  .btnRemoverTodos {
+    width: 100%;
+    min-width: 0;
+    font-size: 1rem;
+    padding: 8px 0;
   }
 }

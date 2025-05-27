@@ -1,11 +1,12 @@
 .dashboardonConsumo {
+  width: 100%;
   background: #292929;
   color: #fff;
-  border-radius: 16px;
+  border-radius: 40px;
   box-shadow: 0 4px 14px #0000008e;
-  padding: 32px 24px;
-  margin: 32px 0;
+  margin: 32px;
   animation: fadeIn 0.8s;
+  padding: 32px;
 }
 
 @keyframes fadeIn {
@@ -22,7 +23,7 @@
 
 .grafico {
   background: #292929;
-  border-radius: 12px;
+  border-radius: 40px;
   padding: 24px 16px;
   min-width: 300px;
   flex: 1 1 350px;

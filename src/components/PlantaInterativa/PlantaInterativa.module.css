@@ -1,9 +1,10 @@
 .plantaContainer {
   position: relative;
-  width: 100%;
+  width: 50rem;
+  height: 35rem;
   max-width: 700px;
-  background: #18181b;
-  border-radius: 18px;
+  background: #292929;
+  border-radius: 40px;
   box-shadow: 0 4px 24px #0007;
   padding: 24px 0 32px 0;
 }
@@ -14,7 +15,7 @@
   max-width: 650px;
   display: block;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 25px;
   box-shadow: 0 2px 12px #0005;
   background: #23232b;
 }
@@ -22,10 +23,10 @@
 .botaoComodo {
   position: absolute;
   transform: translate(-50%, -50%);
-  background: #4d4d4d;
+  background: rgb(0, 0, 0);
   color: #f4f4f4;
-  border: solid 2px #ffe600;
-  border-radius: 50px;
+  border-radius: 40px;
+  border: none;
   padding: 12px 28px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -34,5 +35,6 @@
   transition: background 0.2s, color 0.2s, transform 0.15s;
   outline: none;
   z-index: 2;
+  width: 8rem;
 }
 
