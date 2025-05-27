@@ -92,12 +92,6 @@ const Page = () => {
         return (
           <section key={comodo.id} className={styles.sessaoComodo}>
             <h2 className={styles.tituloComodo}>{comodo.nome}</h2>
-            <button
-              className={styles.btnRemoverTodos}
-              onClick={() => handleRemoverTodosDoComodo(comodo.id)}
-            >
-              Remover todos
-            </button>
             <div className={styles.cardsDispositivos}>
               {dispositivosDoComodo.map((dispositivo, idx) => {
                 // Para remover corretamente, pegue o índice global
@@ -142,6 +136,12 @@ const Page = () => {
                 );
               })}
             </div>
+            <button
+              className={styles.btnRemoverTodos}
+              onClick={() => handleRemoverTodosDoComodo(comodo.id)}
+            >
+              Remover todos
+            </button>
           </section>
         );
       })}

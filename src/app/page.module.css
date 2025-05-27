@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
 .paginaSimulador {
   padding: 40px;
   background-color: #f9fbfd;
@@ -125,37 +127,77 @@
 /* Sessão de cada cômodo */
 .sessaoComodo {
   margin-bottom: 32px;
-  padding: 24px 18px;
-  background: #f7f7fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px #0001;
-  border: 1px solid #e0e0e0;
+  padding: 32px 24px;
+  background: #18181b;
+  border-radius: 18px;
+  border: 1.5px solid #23232b;
+  color: #f7f7fa;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2rem;
+}
+
+.sessaoComodo > * {
+  align-self: flex-start;
+  text-align: left;
 }
 
 /* Título do cômodo */
 .tituloComodo {
   margin-bottom: 16px;
-  color: #1a1a1a;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #ffd600;
+  font-size: 2.8rem;
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  padding-left: 18px;
+  transition: box-shadow 0.2s, background 0.2s;
+  overflow: visible;
+}
+
+.tituloComodo::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 6px;
+  background: linear-gradient(90deg, #ffd600 60%, transparent 100%);
+  border-radius: 4px;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 /* Botão remover todos */
 .btnRemoverTodos {
-  background: #ff5252;
-  color: #fff;
+  background: #ffd600;
+  color: #000000;
   border: none;
   border-radius: 6px;
-  padding: 8px 18px;
-  font-size: 1rem;
+  padding: 8px;
+  font-size: 1.3rem;
   font-weight: 500;
   margin-bottom: 18px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: 0.2s;
+  /* Remover centralização e alinhar à esquerda */
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 0;
 }
+
 .btnRemoverTodos:hover {
-  background: #d32f2f;
+  background: #cdab01;
+  color: #000000;
 }
 
 /* Container dos cards */
@@ -199,8 +241,8 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 6px 14px;
-  font-size: 0.98rem;
+  padding: 6px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   align-self: flex-end;
