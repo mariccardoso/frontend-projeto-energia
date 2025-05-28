@@ -48,17 +48,9 @@ export default function CardsComodos() {
 
   return (
     <>
-      <h2
-        style={{
-          textAlign: 'center',
-          marginBottom: '24px',
-          color: '#ffe600',
-          fontWeight: 'bold',
-          fontSize: '2rem'
-        }}
-      >
-        DICAS DE CONSUMO IDEAL 
-      </h2>
+      <div className={styles.dicasTitle}>
+        <h2 className={styles.subtitle}>Dicas De Consumo Ideal</h2>
+      </div>
       <div className={styles.container}>
         {comodosOrdenados.map((card, index) => (
           <div

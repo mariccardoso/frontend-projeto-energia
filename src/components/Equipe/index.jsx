@@ -24,6 +24,24 @@ const equipe = [
     {
         nome: "Samuel Braga",
         github: "https://github.com/samuelbrag4"
+    },
+    {
+        nome: "Thiago Ferreira",
+        github: "https://github.com/thiago-rferreira",
+        foto: "/thiago.jpg"
+    },
+    {
+        nome: "Marcello Carboni",
+        github: "https://github.com/mapcarboni",
+        foto: "/carbonara.jpg"
+    },
+    {
+        nome: "Eduardo Correia",
+        github: "https://github.com/Eduardo1985S"
+    },
+    {
+        nome: "Felipe Santos",
+        github: "https://github.com/FelipeSantos92Dev"
     }
 ];
 
@@ -37,9 +55,13 @@ export default function Equipe() {
           {equipe.map((member, index) => (
             <li key={index} className={styles.equipeMember}>
               <img
-                src={`${member.github}.png`}
+                src={
+                  member.foto
+                    ? member.foto
+                    : `https://github.com/${member.github.split('/').pop()}.png`
+                }
                 alt={`Foto de perfil de ${member.nome}`}
-                className={styles.profilePic}
+                className={member.nome === "Thiago Ferreira" ? `${styles.profilePic} ${styles.thiagoPic}` : styles.profilePic}
               />
               <div>
                 <p className={styles.memberName}>{member.nome}</p>
