@@ -1,99 +1,120 @@
 .equipe {
-  background: #292929;
   color: #ffe600;
   border-top: 4px solid #ffe600;
   padding: 3rem 1rem 2rem 1rem;
   margin-top: 3rem;
   border-radius: 0 0 18px 18px;
-  box-shadow: 0 -2px 12px #0003;
   width: 100%;
+}
+
+.equipeTitle {
+  background: #292929;
+  box-shadow: 0 -2px 12px #0003;
+  border-radius: 0 0 18px 18px;
+  padding: 1.2rem 1.2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: inline-block;
 }
 
 .subtitle {
   font-size: 2.2rem;
   font-weight: 700;
   color: #ffe600;
-  margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 1px;
   text-shadow: 1px 1px 6px #4d4d4d55;
 }
 
 .equipeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
   list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem 2rem;
-  justify-items: center;
-  align-items: stretch;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .equipeMember {
-  background: #000;
-  border-radius: 12px;
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-  min-width: 180px;
-  max-width: 220px;
+  width: 240px;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    box-shadow 0.3s cubic-bezier(.4, 2, .3, 1),
+    transform 0.35s cubic-bezier(.4, 2, .3, 1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
+  position: relative;
+  background: #18181b8c;
+  will-change: transform, box-shadow;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 1px 8px #0002;
-  transition: transform 0.2s, box-shadow 0.2s;
-  height: 100%;
+  border: none;
+  padding: 0;
 }
 
 .equipeMember:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 18px #0005;
+  transform: translateY(-8px) scale(1.04) rotateZ(-1deg);
+  box-shadow: 0 8px 32px #ffe60044, 0 2px 16px #0006;
 }
 
 .profilePic {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 0.7rem;
-  background: #fff;
+  width: 100%;
+  height: 160px;
   object-fit: cover;
+  background: #222;
+  border: none;
+  border-radius: 18px 18px 0 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .memberName {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffe600;
-  margin-bottom: 0.2rem;
-  letter-spacing: 0.5px;
+  width: 100%;
+  background: linear-gradient(0deg, #18181ba8 100%);
+  border-radius: 0 0 18px 18px;
+  padding: 16px 0 8px 0;
   text-align: center;
+  color: #ffe600;
+  font-size: 1.3rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0;
+  letter-spacing: 1px;
 }
 
 .githubLink {
-  font-size: 1rem;
+  margin: 16px auto 0 auto;
+  display: block;
+  text-align: center;
+  font-size: 1.05rem;
   font-weight: bold;
   text-decoration: none;
   color: #ffe600;
   background: none;
   border: 1px solid #ffe600;
-  border-radius: 6px;
-  padding: 4px 16px;
-  margin: 0.7rem auto 0 auto;
-  display: block;
-  text-align: center;
-  transition: 
-    background 0.2s, 
-    color 0.2s, 
+  border-radius: 8px;
+  padding: 6px 20px;
+  transition:
+    background 0.2s,
+    color 0.2s,
     transform 0.2s,
     box-shadow 0.3s;
   box-shadow: 0 0 0px #ffe600;
+  letter-spacing: 0.5px;
 }
 
 .githubLink:hover {
   background: #ffe600;
-  color: #4d4d4d;
+  color: #18181b;
   transform: scale(1.08);
   border-color: #ffe600;
   box-shadow: 0 0 16px 4px #ffe600, 0 0 32px 8px #ffe60099;
+  border-color: #ffe600;
 }
 
 @media (max-width: 900px) {
@@ -101,6 +122,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
 @media (max-width: 600px) {
   .equipeList {
     grid-template-columns: 1fr;
