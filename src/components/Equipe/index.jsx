@@ -30,7 +30,9 @@ const equipe = [
 export default function Equipe() {
     return (
         <div className={styles.equipe}>
+        <div className={styles.equipeTitle}>
         <h3 className={styles.subtitle}>Conheça Nossa Equipe</h3>
+        </div>
         <ul className={styles.equipeList}>
           {equipe.map((member, index) => (
             <li key={index} className={styles.equipeMember}>
