@@ -1,41 +1,9 @@
 /* =========================
-   VARIÁVEIS DE CORES GLOBAIS
-   ========================= */
-:root {
-  --cor-bg-principal: #f4f4f4;
-  --cor-bg-card: #23232b;
-  --cor-bg-card-fosco: rgb(0, 0, 0);
-  --cor-bg-comodo: #292929;
-  --cor-bg-destaque: #ffe600;
-  --cor-bg-destaque-escuro: #ffd600;
-  --cor-bg-btn-remover: #d32f2f;
-  --cor-bg-btn-remover-hover: #b71c1c;
-  --cor-bg-btn-remover-todos: #d32f2f;
-  --cor-bg-btn-remover-todos-hover: #b71c1c;
-
-  --cor-texto-principal: #222;
-  --cor-texto-claro: #f7f7fa;
-  --cor-texto-destaque: #ffe600;
-  --cor-texto-btn: #fff;
-  --cor-texto-titulo: #2c3e50;
-
-  --cor-borda-card: #ffe60033;
-  --cor-borda-comodo: #bababa;
-  --cor-borda-btn-remover: #ffbb28;
-
-  --sombra-card: 0 4px 24px #0007;
-  --sombra-card-fosco: 0 4px 24px #0005;
-  --sombra-btn: 0 2px 12px #0002;
-  --sombra-btn-hover: 0 4px 18px #d32f2f55;
-  --sombra-card-dispositivo: 0 2px 8px #0003;
-}
-
-/* =========================
    LAYOUT PRINCIPAL
    ========================= */
 .paginaSimulador {
   padding: 40px;
-  background-color: var(--cor-bg-principal);
+  background-color: #f4f4f4;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -52,12 +20,12 @@
 .cabecalhoProjeto {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Alinha um em cada canto */
+  justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* opcional: limite de largura para telas grandes */
+  max-width: 1200px;
   margin: 0 auto 36px auto;
   margin-top: 8px;
-  padding: 0 24px; /* espaçamento lateral */
+  padding: 0 24px;
   box-sizing: border-box;
 }
 
@@ -87,7 +55,7 @@
   text-align: center;
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--cor-texto-titulo);
+  color: #2c3e50;
   margin-bottom: 20px;
 }
 
@@ -98,7 +66,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 97%;
 }
@@ -109,9 +77,9 @@
 .sessaoComodo {
   margin-bottom: 32px;
   padding: 16px 24px;
-  background: var(--cor-bg-comodo);
+  background: #292929;
   border-radius: 40px;
-  color: var(--cor-texto-claro);
+  color: #f7f7fa;
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.2s, transform 0.15s;
@@ -133,7 +101,7 @@
    ========================= */
 .tituloComodo {
   margin-bottom: 16px;
-  color: var(--cor-bg-destaque-escuro);
+  color: #ffd600;
   font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -156,7 +124,7 @@
 }
 
 .cardDispositivo {
-  background: var(--cor-bg-card-fosco);
+  background: rgb(0, 0, 0);
   border-radius: 18px;
   padding: 18px 20px;
   min-width: 220px;
@@ -181,12 +149,12 @@
 .cardDispositivo p {
   margin: 0;
   font-size: 1rem;
-  color: var(--cor-texto-claro);
+  color: #f7f7fa;
   letter-spacing: 0.2px;
 }
 
 .cardDispositivo span {
-  color: var(--cor-bg-destaque);
+  color: #ffe600;
   font-weight: 600;
 }
 
@@ -195,15 +163,15 @@
    ========================= */
 .btnRemover {
   margin-top: 12px;
-  background: var(--cor-bg-btn-remover);
-  color: var(--cor-texto-btn);
+  background: #d32f2f;
+  color: #fff;
   border: none;
   border-radius: 16px;
   padding: 8px 0;
   font-size: 1rem;
   cursor: pointer;
   align-self: flex-start;
-  box-shadow: var(--sombra-card-dispositivo);
+  box-shadow: 0 2px 8px #0003;
   transition: 0.18s;
   width: 7.5rem;
   letter-spacing: 0.5px;
@@ -211,10 +179,10 @@
 }
 
 .btnRemover:hover {
-  background: var(--cor-bg-btn-remover-hover);
-  color: var(--cor-texto-btn);
+  background: #b71c1c;
+  color: #fff;
   transform: scale(1.05);
-  box-shadow: var(--sombra-btn-hover);
+  box-shadow: 0 4px 18px #d32f2f55;
 }
 
 /* Botão remover todos */
@@ -222,8 +190,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--cor-bg-btn-remover-todos);
-  color: var(--cor-texto-btn);
+  background: #d32f2f;
+  color: #fff;
   border: none;
   border-radius: 20px;
   margin: 16px 0px;
@@ -231,7 +199,7 @@
   font-size: 1.08rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: var(--sombra-btn);
+  box-shadow: 0 2px 12px #0002;
   transition: 0.18s;
   width: 12rem;
   align-self: flex-start;
@@ -239,15 +207,12 @@
 }
 
 .btnRemoverTodos:hover {
-  background: var(--cor-bg-btn-remover-todos-hover);
-  color: var(--cor-texto-btn);
+  background: #b71c1c;
+  color: #fff;
   transform: scale(1.05);
-  box-shadow: var(--sombra-btn-hover);
+  box-shadow: 0 4px 18px #d32f2f55;
 }
 
-/* =========================
-   ANIMAÇÕES
-   ========================= */
 @keyframes fadeInCard {
   from {
     opacity: 0;
@@ -259,9 +224,6 @@
   }
 }
 
-/* =========================
-   RESPONSIVIDADE
-   ========================= */
 @media (max-width: 900px) {
   .superior {
     flex-direction: column;

@@ -1,26 +1,6 @@
-/* =========================
-   VARIÁVEIS DE CORES LOCAIS
-   ========================= */
-:root {
-  --cor-bg-conta: #292929;
-  --cor-titulo-conta: #ffe600;
-  --cor-borda-titulo: #bababa;
-  --cor-icone: #ffe600;
-  --cor-bloco-bg: #f7f7fa;
-  --cor-bloco-txt: #37474f;
-  --cor-bloco-bg-hover: #bababaf0;
-  --cor-tabela-bg: #fafafa;
-  --cor-tabela-th-bg: #ffe600;
-  --cor-tabela-th-txt: #222;
-  --cor-tabela-td-txt: #222;
-}
-
-/* =========================
-   CONTAINER PRINCIPAL
-   ========================= */
 .contaEnergia {
   max-width: 100vw;
-  background: var(--cor-bg-conta);
+  background: #292929;
   border-radius: 20px;
   box-shadow: 0 2px 8px #0002;
   padding: 2rem 2rem;
@@ -34,16 +14,13 @@
   gap: 1rem;
 }
 
-/* =========================
-   TÍTULO E ÍCONE
-   ========================= */
 .contaEnergia h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--cor-titulo-conta);
+  color: #ffe600;
   font-weight: 700;
   letter-spacing: 0.5px;
-  border-bottom: 2px solid var(--cor-borda-titulo);
+  border-bottom: 2px solid #bababa;
   padding-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -61,9 +38,6 @@
   display: inline-block;
 }
 
-/* =========================
-   BLOCOS DE CONSUMO E VALOR
-   ========================= */
 .infoConta {
   display: flex;
   gap: 2rem;
@@ -119,9 +93,6 @@
   background-color: rgba(255, 230, 0, 0.13);
 }
 
-/* =========================
-   TABELA DE DISPOSITIVOS
-   ========================= */
 .tabelaDispositivos {
   margin-top: 2vw;
   overflow-x: auto;
@@ -130,7 +101,7 @@
 .tabelaSimples {
   width: 100%;
   border-collapse: collapse;
-  background: var(--cor-tabela-bg);
+  background: #fafafa;
   border-radius: 1vw;
   overflow: hidden;
   font-size: 1vw;
@@ -146,18 +117,15 @@
 }
 
 .tabelaSimples th {
-  background: var(--cor-tabela-th-bg);
-  color: var(--cor-tabela-th-txt);
+  background: #ffe600;
+  color: #222;
   font-weight: bold;
 }
 
 .tabelaSimples td {
-  color: var(--cor-tabela-td-txt);
+  color: #222;
 }
 
-/* =========================
-   RESPONSIVIDADE
-   ========================= */
 @media (max-width: 900px) {
   .contaEnergia {
     padding: 18px 6px;
