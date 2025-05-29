@@ -36,6 +36,7 @@ const DashboardConsumo = ({ equipamentos }) => {
     };
   });
 
+
   // Top 5 maiores consumidores (em kWh)
   const dataBarras = [...equipamentos]
     .map(eq => ({
@@ -47,7 +48,7 @@ const DashboardConsumo = ({ equipamentos }) => {
 
   return (
     <div className={styles.dashboardonConsumo}>
-      <h2 className={styles.titulo}>Análise de <span>Consumo</span></h2>
+      <h2 className={styles.titulo}>Análise de <span>Consumo Diário</span></h2>
       <div className={styles.graficos}>
         <div className={styles.grafico}>
           <h4 className={styles.subtitulo}>Consumo por Dispositivo (%)</h4>
