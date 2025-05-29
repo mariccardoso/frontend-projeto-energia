@@ -96,6 +96,7 @@
 .tabelaDispositivos {
   margin-top: 2vw;
   overflow-x: auto;
+  height: 200px;
 }
 
 .tabelaSimples {
@@ -180,7 +181,7 @@
 
 @media (min-width: 1200px) {
   .contaEnergia {
-    max-width: 1200px;
+    width: 50%;
     font-size: 1.5vw;
     border-radius: 2vw;
     padding: 2vw 4vw;
