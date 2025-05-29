@@ -103,7 +103,7 @@
 .dicasTitle {
   background: #292929;
   box-shadow: 0 -2px 12px #0003;
-  border-radius: 0 0 18px 18px;
+  border-radius: 18px;
   padding: 1.2rem 1.2rem;
   color: #ffd600;
   margin-bottom: 2rem;
