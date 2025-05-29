@@ -6,14 +6,12 @@ import Image from "next/image";
 const PRECO_KWH = 0.85; // Valor médio do kWh no Brasil em R$
 
 const ContaDeEnergia = ({ equipamentos }) => {
-  // Consumo total em kWh por hora (se todos ligados juntos por 1h)
   const consumoHoraKwh = equipamentos.reduce((total, item) => {
     const potencia = Number(item.potencia);
     if (isNaN(potencia)) return total;
     return total + potencia / 1000;
   }, 0);
 
-  // Consumo total em kWh por dia (considerando tempo de uso de cada um)
   const consumoDiaKwh = equipamentos.reduce((total, item) => {
     const potencia = Number(item.potencia);
     const tempoUso = Number(item.tempoUso);
@@ -21,11 +19,9 @@ const ContaDeEnergia = ({ equipamentos }) => {
     return total + (potencia * tempoUso) / 1000;
   }, 0);
 
-  // Consumo total em kWh por semana e mês
   const consumoSemanaKwh = consumoDiaKwh * 7;
   const consumoMesKwh = consumoDiaKwh * 30;
 
-  // Valores estimados em reais
   const valorHora = consumoHoraKwh * PRECO_KWH;
   const valorDia = consumoDiaKwh * PRECO_KWH;
   const valorSemana = consumoSemanaKwh * PRECO_KWH;
@@ -46,10 +42,10 @@ const ContaDeEnergia = ({ equipamentos }) => {
       <div className={styles.infoConta}>
         <div className={styles.blocoConsumo}>
           <h3>Consumo de Energia</h3>
-          <p><strong>Por hora:</strong> {consumoHoraKwh.toFixed(3)} kWh</p>
-          <p><strong>Por dia:</strong> {consumoDiaKwh.toFixed(3)} kWh</p>
-          <p><strong>Por semana:</strong> {consumoSemanaKwh.toFixed(3)} kWh</p>
-          <p><strong>Por mês:</strong> {consumoMesKwh.toFixed(3)} kWh</p>
+          <p><strong>Por hora:</strong> {consumoHoraKwh.toFixed(2)} kWh</p>
+          <p><strong>Por dia:</strong> {consumoDiaKwh.toFixed(2)} kWh</p>
+          <p><strong>Por semana:</strong> {consumoSemanaKwh.toFixed(2)} kWh</p>
+          <p><strong>Por mês:</strong> {consumoMesKwh.toFixed(2)} kWh</p>
         </div>
         <div className={styles.blocoValor}>
           <h3>Gasto Estimado</h3>

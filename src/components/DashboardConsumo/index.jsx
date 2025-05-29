@@ -8,7 +8,7 @@ import {
 
 import styles from './DashboardConsumo.module.css';
 
-const cores = ['#ffe600', '#4d4d4d', '#00a86b', '#ff6f61', '#6b5b95', '#feb236'];
+const cores = ['#ffe600', '#bababa', '#00a86b', '#ff6f61', '#6b5b95', '#feb236'];
 
 
 const DashboardConsumo = ({ equipamentos }) => {
